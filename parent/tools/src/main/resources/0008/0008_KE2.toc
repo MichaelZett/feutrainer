@@ -1,0 +1,52 @@
+1 Überblick über das Informationsmanagement .......................................... 1
+1.1 Bedeutung des Begriffs Information ....................................................... 2
+1.2 Betriebliche Informationsfunktion und -infrastruktur ............................. 3
+1.3 Bedeutung des Begriffs Informationsmanagement ................................. 4
+1.4 Informationslogistik als Bestandteil des Informationsmanagements ...... 5
+1.5 Entscheidungsunterstützung und Informationsbedarf ............................. 6
+1.6 Reichweite des Informationsmanagements ........................................... 12
+1.6.1 Handlungsfelder des strategischen Informationsmanagements
+......................................................................... 12
+1.6.2 Handlungsfelder des operatives Informationsmanagements 15
+2 Überblick über das IT-Controlling ........................................................... 16
+2.1 Instrumente des IT-Controllings ............................................................ 17
+2.2 IT-Kennzahlen und Kennzahlensysteme ............................................... 18
+2.2.1 Balanced Scorecard als Kennzahlensystem .......................... 19
+2.2.2 Total Cost of Ownership als Kennzahlensystem .................. 21
+3 Überblick über die IT-Governance ........................................................... 23
+3.1 Ziele und Aufgaben der IT-Governance ................................................ 24
+3.2 Relevante Gesetze und Richtlinien ........................................................ 25
+3.2.1 KontraG und Sarbanes Oxley Act ......................................... 25
+3.2.2 Information Technology Infrastructure Library (ITIL) ........ 26
+3.2.3 Control Objectives for Information and Related Technology
+(CobIT) ................................................................................. 28
+3.2.4 Grundsätze ordnungsmäßiger DV-gestützter
+Buchführungssysteme (GoBS) .............................................. 31
+3.2.5 Grundsätze zum Datenzugriff und zur Prüfbarkeit digitaler
+Unterlagen (GDPdU) ............................................................ 32
+3.3 Grundlegendes zum Datenschutz .......................................................... 33
+3.4 Grundlegendes zum Digital Rights Management ................................. 34
+3.4.1 Ökonomische Grundlagen zum Digital Rights Management34
+3.4.2 Digitale Güter und ihre Eigenschaften ................................. 35
+3.4.3 Grundlegendes zu DRM-Systemen ...................................... 36
+3.5 Risiko und Risikomanagement im Rahmen der IT-Governance .......... 37
+3.5.1 Überblick über den Risikomanagementprozess ................... 38
+3.5.2 Value at Risk (VaR) als Methode der Risikomessung ......... 40
+4 Überblick über Informationssystemarchitekturen ................................. 43
+4.1 Ziele von Informationssystemarchitekturen .......................................... 44
+4.2 Häufig erwähnte Architekturmodelle .................................................... 45
+4.2.1 Ganzheitliches Modell der Informationssystemarchitektur .. 46
+4.2.2 Architekturpyramide nach Dern ........................................... 48
+4.2.3 Zachman Framework for Enterprise Architecture ................ 49
+4.3 Applikationsarchitektur als wichtiger Bestandteil der
+Informationssystemarchitektur ........................................................... 52
+4.4 Serviceorientierte Architektur (SOA) als besondere Form der
+Applikationsarchitektur ...................................................................... 53
+5 Grundlagen zur Integration ...................................................................... 56
+5.1 Grundlagen zum Integrationsgegenstand .............................................. 57
+5.2 Grundlagen zur Integrationsreichweite ................................................. 58
+5.3 Grundlagen zur Integrationsrichtung .................................................... 59
+5.4 Grundlagen zum Automationsgrad der Integration............................... 60
+5.5 Ziele der Integration .............................................................................. 60
+5.6 Enterprise Application Integration (EAI).............................................. 61
+6 Rückblick .................................................................................................... 64

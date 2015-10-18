@@ -1,0 +1,89 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>de.zettsystems.feutrainer</groupId>
+		<artifactId>parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>feutrainer-assembly</artifactId>
+	<packaging>war</packaging>
+
+	<prerequisites>
+		<maven>3.2.1</maven>
+	</prerequisites>
+
+	<description>
+		Assembly for feu trainer.
+  </description>
+
+	<dependencies>
+		<dependency>
+			<groupId>de.zettsystems.feutrainer</groupId>
+			<artifactId>domain</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>de.zettsystems.feutrainer</groupId>
+			<artifactId>application</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>de.zettsystems.feutrainer</groupId>
+			<artifactId>ui</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+	</dependencies>
+
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>${maven.war.plugin.version}</version>
+				<configuration>
+					<archive>
+						<manifestSections>
+							<manifestSection>
+								<name>feutrainer</name>
+								<manifestEntries>
+									<Implementation-Vendor-Id>zettsystems</Implementation-Vendor-Id>
+									<Implementation-Version>${project.version}</Implementation-Version>
+								</manifestEntries>
+							</manifestSection>
+						</manifestSections>
+					</archive>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${spring.boot.version}</version>
+				<configuration>
+					<source>${java.source}</source>
+					<target>${java.target}</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
+					<mainClass>de.zettsystems.FeuTrainer</mainClass>
+					<finalName>feutrainer</finalName>
+					<layout>WAR</layout>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
