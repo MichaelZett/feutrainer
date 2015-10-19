@@ -8,6 +8,9 @@
 	</parent>
 
 	<artifactId>ui</artifactId>
+	
+	<properties>
+	</properties>
 
 	<dependencies>
 		<dependency>
@@ -27,5 +30,11 @@
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
 		</dependency>
+		<dependency>
+		   <groupId>org.vaadin.addons.lazyquerycontainer</groupId>
+		   <artifactId>vaadin-lazyquerycontainer</artifactId>
+		   <version>7.4.0.1</version>
+		</dependency>
+		
 	</dependencies>
 </project>
