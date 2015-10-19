@@ -17,7 +17,7 @@ import de.zettsystems.futrainer.domain.base.AbstractBaseEntity;
 @Entity
 public class Institute extends AbstractBaseEntity {
 
-	@OneToMany
+	@OneToMany(mappedBy = "institute")
 	private Set<Department> departments = new HashSet<>();
 
 	/**

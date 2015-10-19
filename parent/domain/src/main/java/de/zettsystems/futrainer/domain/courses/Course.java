@@ -26,7 +26,7 @@ public class Course extends AbstractBaseEntity {
 	private Set<Chair> chairs = new HashSet<>();
 
 	/** The units. */
-	@OneToMany
+	@OneToMany(mappedBy = "course")
 	@OrderBy("id")
 	private SortedSet<CourseUnit> courseUnits = new TreeSet<>();
 

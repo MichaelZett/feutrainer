@@ -21,10 +21,10 @@ import de.zettsystems.futrainer.domain.courses.Chapter;
 public class Question extends AbstractBaseEntity {
 	private String additionalText;
 	private String imageFileName;
-	@ManyToOne
+	@ManyToOne(optional = false)
 	@NotNull
 	private Chapter chapter;
-	@OneToMany
+	@OneToMany(mappedBy = "question")
 	private Set<Answer> answers = new HashSet<>();
 
 	/**

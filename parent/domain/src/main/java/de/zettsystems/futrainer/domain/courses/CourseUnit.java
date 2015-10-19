@@ -21,15 +21,15 @@ import de.zettsystems.futrainer.domain.organisation.Chair;
 @Entity
 public class CourseUnit extends AbstractBaseEntity {
 
-	@ManyToOne
+	@ManyToOne(optional = false)
 	@NotNull
 	private Course course;
 
-	@ManyToOne
+	@ManyToOne(optional = false)
 	@NotNull
 	private Chair chair;
 
-	@OneToMany
+	@OneToMany(mappedBy = "courseUnit")
 	@OrderBy("id")
 	private SortedSet<Chapter> chapters = new TreeSet<>();
 

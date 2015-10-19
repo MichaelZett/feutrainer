@@ -23,18 +23,18 @@ import de.zettsystems.futrainer.domain.test.Question;
 @Entity
 public class Chapter extends AbstractBaseEntity {
 
-	@ManyToOne
+	@ManyToOne(optional = false)
 	@NotNull
 	private CourseUnit courseUnit;
 
 	@ManyToOne
 	private Chapter superChapter;
 
-	@OneToMany
+	@OneToMany(mappedBy = "superChapter")
 	@OrderBy("id")
 	private SortedSet<Chapter> subChapters = new TreeSet<>();
 
-	@OneToMany
+	@OneToMany(mappedBy = "chapter")
 	private Set<Question> questions = new HashSet<>();
 
 	/**

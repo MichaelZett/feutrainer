@@ -19,11 +19,11 @@ import de.zettsystems.futrainer.domain.base.AbstractBaseEntity;
 @Entity
 public class Department extends AbstractBaseEntity {
 
-	@ManyToOne
+	@ManyToOne(optional = false)
 	@NotNull
 	private Institute institute;
 
-	@OneToMany
+	@OneToMany(mappedBy = "department")
 	private Set<Chair> chairs = new HashSet<>();
 
 	/**

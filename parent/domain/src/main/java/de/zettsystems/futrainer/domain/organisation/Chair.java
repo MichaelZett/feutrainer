@@ -20,11 +20,11 @@ import de.zettsystems.futrainer.domain.courses.Course;
 @Entity
 public class Chair extends AbstractBaseEntity {
 
-	@ManyToOne
+	@ManyToOne(optional = false)
 	@NotNull
 	private Department department;
 
-	@ManyToMany
+	@ManyToMany(mappedBy = "chairs")
 	private Set<Course> courses = new HashSet<>();
 
 	/**

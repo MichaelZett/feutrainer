@@ -13,7 +13,7 @@ import de.zettsystems.futrainer.domain.base.AbstractBaseEntity;
 public class Answer extends AbstractBaseEntity {
 	private String additionalText;
 	private String imageFileName;
-	@ManyToOne
+	@ManyToOne(optional = false)
 	@NotNull
 	private Question question;
 	@NotNull
