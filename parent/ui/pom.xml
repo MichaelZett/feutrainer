@@ -34,6 +34,8 @@
 		   <groupId>org.vaadin.addons.lazyquerycontainer</groupId>
 		   <artifactId>vaadin-lazyquerycontainer</artifactId>
 		   <version>7.4.0.1</version>
+		   <scope>system</scope>
+      	   <systemPath>C:/Development/libraries/vaadin-lazyquerycontainer-7.4.0.1.jar</systemPath>
 		</dependency>
 		
 	</dependencies>
