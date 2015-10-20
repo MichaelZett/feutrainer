@@ -20,6 +20,14 @@ public class Institute extends AbstractBaseEntity {
 	@OneToMany(mappedBy = "institute")
 	private Set<Department> departments = new HashSet<>();
 
+	public Institute() {
+		super();
+	}
+
+	public Institute(String id, String name) {
+		super(id, name);
+	}
+
 	/**
 	 * Gets the departments.
 	 *

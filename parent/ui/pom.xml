@@ -17,7 +17,13 @@
 			<groupId>de.zettsystems.feutrainer</groupId>
 			<artifactId>application</artifactId>
 			<version>${project.version}</version>
+		</dependency>		
+		<dependency>
+			<groupId>de.zettsystems.feutrainer</groupId>
+			<artifactId>domain</artifactId>
+			<version>${project.version}</version>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -31,12 +37,16 @@
 			<artifactId>guava</artifactId>
 		</dependency>
 		<dependency>
-		   <groupId>org.vaadin.addons.lazyquerycontainer</groupId>
-		   <artifactId>vaadin-lazyquerycontainer</artifactId>
-		   <version>7.4.0.1</version>
+		   <groupId>com.vaadin.addon</groupId>
+		   <artifactId>jpacontainer</artifactId>
+		   <version>3.2.0</version>			   
 		   <scope>system</scope>
-      	   <systemPath>C:/Development/libraries/vaadin-lazyquerycontainer-7.4.0.1.jar</systemPath>
+      	   <systemPath>C:/Development/libraries/vaadin-jpacontainer-3.2.0.jar</systemPath>
 		</dependency>
-		
+		<dependency>
+			<groupId>org.scala-lang</groupId>
+			<artifactId>scala-library</artifactId>
+			<version>2.11.0</version>
+		</dependency>
 	</dependencies>
 </project>

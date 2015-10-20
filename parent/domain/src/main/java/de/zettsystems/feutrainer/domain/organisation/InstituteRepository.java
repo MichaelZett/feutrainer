@@ -23,10 +23,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  * Repository for Institute.
- * 
+ *
  * @author michael_zoeller
  * @created 26.08.2013
  */
 public interface InstituteRepository extends JpaRepository<Institute, Long> {
+
+	void deleteById(String selectedId);
 
 }

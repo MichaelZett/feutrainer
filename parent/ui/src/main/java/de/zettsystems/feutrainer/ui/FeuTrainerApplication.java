@@ -33,6 +33,8 @@ import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.themes.ValoTheme;
 
+import de.zettsystems.feutrainer.ui.organisation.InstituteView;
+
 /**
  * Main application ui.
  *
@@ -66,6 +68,7 @@ public class FeuTrainerApplication extends UI {
 		navigationBar.addStyleName(ValoTheme.LAYOUT_COMPONENT_GROUP);
 
 		navigationBar.addComponent(this.createNavigationButton("Start View", StartView.VIEW_NAME));
+		navigationBar.addComponent(this.createNavigationButton("Institute View", InstituteView.VIEW_NAME));
 
 		root.addComponent(navigationBar);
 

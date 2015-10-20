@@ -2,7 +2,6 @@ package de.zettsystems;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 /**
  * Bootstrap class.
@@ -11,7 +10,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
  *
  */
 @SpringBootApplication
-@EnableJpaRepositories
 public class FeuTrainer {
 	/**
 	 * Starts the server.
