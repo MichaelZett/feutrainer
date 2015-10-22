@@ -50,7 +50,7 @@ public class InstituteView extends AbstractBaseView<Institute> {
 
 	@Override
 	protected String getCaptionResourcePath() {
-		return "de/zettsystems/feutrainer/ui/organisation/caption.md";
+		return "/instituteCaption.md";
 	}
 
 }
