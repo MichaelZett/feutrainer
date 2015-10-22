@@ -85,7 +85,7 @@ public class AbstractBaseEntity implements Serializable {
 	 *
 	 * @return the entit key
 	 */
-	public long getEntitKey() {
+	public long getEntityKey() {
 		return this.entityKey;
 	}
 

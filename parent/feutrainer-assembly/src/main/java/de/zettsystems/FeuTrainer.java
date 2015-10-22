@@ -11,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 public class FeuTrainer {
+
 	/**
 	 * Starts the server.
 	 *
@@ -20,4 +21,5 @@ public class FeuTrainer {
 	public static void main(String[] args) {
 		SpringApplication.run(FeuTrainer.class, args);
 	}
+
 }

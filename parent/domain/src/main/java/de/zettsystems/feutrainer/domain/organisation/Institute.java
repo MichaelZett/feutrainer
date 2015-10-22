@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 
 import de.zettsystems.feutrainer.domain.base.AbstractBaseEntity;
@@ -17,7 +18,7 @@ import de.zettsystems.feutrainer.domain.base.AbstractBaseEntity;
 @Entity
 public class Institute extends AbstractBaseEntity {
 
-	@OneToMany(mappedBy = "institute")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "institute")
 	private Set<Department> departments = new HashSet<>();
 
 	public Institute() {
