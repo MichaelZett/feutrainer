@@ -1,1 +1,1 @@
-### FeuTrainer - Institute Master Data
+### FeuTrainer - Department Master Data

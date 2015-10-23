@@ -109,4 +109,9 @@ public class AbstractBaseEntity implements Serializable {
 		return this.optimisticConcurrency;
 	}
 
+	@Override
+	public String toString() {
+		return this.name;
+	}
+
 }

@@ -33,6 +33,7 @@ import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.themes.ValoTheme;
 
+import de.zettsystems.feutrainer.ui.organisation.DepartmentView;
 import de.zettsystems.feutrainer.ui.organisation.InstituteView;
 
 /**
@@ -53,7 +54,7 @@ public class FeuTrainerApplication extends UI {
 	 */
 	@Override
 	protected void init(VaadinRequest request) {
-		this.initLayout();
+		initLayout();
 
 	}
 
@@ -62,13 +63,14 @@ public class FeuTrainerApplication extends UI {
 		root.setSizeFull();
 		root.setMargin(true);
 		root.setSpacing(true);
-		this.setContent(root);
+		setContent(root);
 
 		final CssLayout navigationBar = new CssLayout();
 		navigationBar.addStyleName(ValoTheme.LAYOUT_COMPONENT_GROUP);
 
-		navigationBar.addComponent(this.createNavigationButton("Start View", StartView.VIEW_NAME));
-		navigationBar.addComponent(this.createNavigationButton("Institute View", InstituteView.VIEW_NAME));
+		navigationBar.addComponent(createNavigationButton("Start View", StartView.VIEW_NAME));
+		navigationBar.addComponent(createNavigationButton("Institute View", InstituteView.VIEW_NAME));
+		navigationBar.addComponent(createNavigationButton("Department View", DepartmentView.VIEW_NAME));
 
 		root.addComponent(navigationBar);
 
@@ -84,7 +86,7 @@ public class FeuTrainerApplication extends UI {
 	private Button createNavigationButton(String caption, final String viewName) {
 		Button button = new Button(caption);
 		button.addStyleName(ValoTheme.BUTTON_SMALL);
-		button.addClickListener(event -> this.getUI().getNavigator().navigateTo(viewName));
+		button.addClickListener(event -> getUI().getNavigator().navigateTo(viewName));
 		return button;
 	}
 
