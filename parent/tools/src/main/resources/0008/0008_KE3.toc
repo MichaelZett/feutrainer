@@ -1,0 +1,52 @@
+1 Einführung in das Projektmanagement ..................................................... 1
+1.1 Bedeutung des Begriffes Projekt ............................................................. 3
+1.2 Grundlegende Projektarten ...................................................................... 4
+1.3 Grundlagen des Projektmanagements ..................................................... 5
+1.4 Projektportfolio und Projektbewertung ................................................... 8
+1.5 Grundlagen der Projektorganisation ...................................................... 10
+1.5.1 Formen der Projektorganisation ............................................ 10
+1.5.2 Rollen und Gremien im Rahmen der Projektorganisiation ... 14
+1.5.3 Bedeutung von Arbeitspakete in der Projektorganisation .... 15
+1.6 Projektphasen und Meilensteine ............................................................ 15
+1.6.1 Initialisierung als erste Projektphase .................................... 17
+1.6.2 Vorstudie als zweite Projektphase ........................................ 18
+1.6.3 Konzept als dritte Projektphase ............................................ 18
+1.6.4 Realisierung als vierte Projektphase ..................................... 19
+1.6.5 Einführung als fünfte Projektphase ....................................... 20
+1.6.6 Meilensteine als Projektzwischenziele ................................. 21
+1.7 Grundlagen des Projekt-Controllings .................................................... 22
+1.7.1 Grundlagen der Projektplanung ............................................ 23
+1.7.1.1 Projektstrukturplan als Instrument der
+Projektplanung ........................................................ 24
+1.7.1.2 Terminplanung als Instrument
+der Projektplanung .................................................. 26
+1.7.1.3 Netzplantechnik als Instrument
+der Projektplanung .................................................. 26
+1.7.1.4 Balkendiagramm als Instrument
+der Projektplanung .................................................. 29
+1.7.1.5 Kapazitäts- und Ressourcenplanung als Instrument
+der Projektplanung ................................................. 30
+1.7.1.6 Projektkostenplanung als Instrument der
+Projektplanung ........................................................ 30
+1.7.2 Grundlagen der Projektkontrolle .......................................... 31
+1.7.3 Grundlagen der Projektsteuerung ......................................... 33
+1.8 Rückblick .............................................................................................. 34
+2 Einführung in das Geschäftsprozessmanagement .................................. 35
+2.1 Funktionsorientierte und prozessorientierte Unternehmensausrichtung –
+eine Gegenüberstellung....................................................................... 37
+2.2 Grundlagen und Begrifflichkeiten......................................................... 40
+2.2.1 Systematisierungen für das Geschäftsprozessmanagement .. 41
+2.2.2 Ursprünge der Identifizierung von unternehmerischen
+Prozessen .............................................................................. 47
+2.2.3 Abgrenzung der unterschiedlichen Prozessarten im
+Geschäftsprozessmanagement .............................................. 48
+2.2.4 Visualisierung des Zusammenspiels der Prozesse im
+Unternehmen: die Prozesslandkarte ..................................... 51
+2.3 Methoden des Geschäftsprozessmanagements
+zur Prozessverbesserung .................................................................... 53
+2.3.1 Der Kreislauf der Prozessverbesserung ................................ 53
+2.3.2 Ausgewählte Methoden zur Prozessoptimierung ................. 56
+2.3.2.1 Total Cycle Time (TCT) ......................................... 56
+2.3.2.2 Six Sigma ............................................................... 58
+2.3.2.3 Kontinuierlicher Verbesserungsprozess (KVP) ..... 63
+2.4 Rückblick .............................................................................................. 66

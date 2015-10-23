@@ -1,0 +1,54 @@
+1 Einleitung ...................................................................................................... 1
+1.1 Was sind betriebliche Anwendungssysteme? .......................................... 1
+1.2 Lernziele der Kurseinheit ........................................................................ 2
+1.3 Operative Anwendungssysteme .............................................................. 3
+1.3.1 Operative Anwendungssysteme aus funktionaler und
+prozessualer Sicht ................................................................... 3
+1.3.2 Operative Anwendungssysteme aus Sicht der
+unternehmerischen Wertschöpfung ........................................ 4
+2 Aufbau und Typen betrieblicher Anwendungssysteme ............................ 9
+2.1 Drei-Schichten-Architektur von betrieblichen Anwendungssystemen ... 9
+2.2 Typen von betrieblichen Anwendungssystemen ................................... 11
+2.3 Von einfachen Transaktionssystemen zu ganzheitlichen Software-
+Lösungen ............................................................................................. 13
+3 Source: Supply-Chain-Management......................................................... 17
+3.1 Lieferketten............................................................................................ 17
+3.2 Supply-Chain-Management ................................................................... 18
+3.3 Prozesse des Supply-Chain-Managements ............................................ 19
+3.4 Herausforderungen des Supply-Chain-Managements ........................... 20
+3.5 Anwendungssysteme für das Supply-Chain-Management .................... 21
+3.6 Marktüberblick und -entwicklung ......................................................... 23
+4 Make: Enterprise Resource Planning und Produktlebenszyklus-
+Management ................................................................................................ 25
+4.1 Enterprise Resource Planning................................................................ 25
+4.1.1 Eigenschaften von ERP-Systemen ........................................ 25
+4.1.2 Aufbau von ERP-Systemen .................................................. 26
+4.1.3 Unterstützung der Funktionsbereiche durch ERP-Systeme .. 28
+4.1.4 Herausforderungen bei der Einführung und Nutzung von
+ERP-Systemen ...................................................................... 34
+4.1.5 Marktüberblick und -entwicklung ........................................ 35
+4.2 Produktlebenszyklus-Management ....................................................... 36
+4.2.1 Grundlagen des Produktlebenszyklus-Managements ........... 36
+4.2.2 Vom Produktdatenmanagement zum Produktlebenszyklus-
+Management ......................................................................... 37
+4.2.3 Funktionalitäten von PLM-Systemen ................................... 38
+4.2.4 Marktüberblick und -entwicklung ........................................ 40
+5 Deliver: Electronic Commerce, Mobile Commerce und
+Kundenbeziehungsmanagement ............................................................... 41
+5.1 Internetbasierte Geschäftsmodelle und Wertschöpfung ........................ 42
+5.2 Electronic Commerce ............................................................................ 45
+5.2.1 Akteure und Kooperationsformen im E-Commerce ............. 46
+5.2.2 Abwicklungs- und Zahlungssysteme im E-Commerce ........ 48
+5.2.3 Erfolgsfaktoren und Herausforderungen des E-Commerce .. 51
+5.3 Mobile Commerce ................................................................................. 53
+5.4 Kundenbeziehungsmanagement ............................................................ 55
+5.4.1 CRM-Systeme ...................................................................... 55
+5.4.2 Anwendungsbereiche von CRM-Systemen .......................... 56
+5.4.3 Herausforderungen und Potenziale von CRM-Systemen ..... 58
+5.5 Marktüberblick und -entwicklung ......................................................... 59
+6 Auswahl und Einführung betrieblicher Anwendungssysteme ............... 63
+6.1 Individual- vs. Standardsoftware .......................................................... 63
+6.2 Vor- und Nachteile von Individual- und Standardsoftware .................. 64
+6.3 Vorgehen zur Auswahl und Einführung von Standardsoftware ........... 66
+6.3.1 Auswahl ................................................................................ 66
+6.3.2 Einführung ............................................................................ 67
