@@ -13,9 +13,13 @@ import de.zettsystems.feutrainer.domain.organisation.InstituteRepository;
 import de.zettsystems.feutrainer.ui.base.AbstractBaseTable;
 import de.zettsystems.feutrainer.ui.base.AbstractBaseView;
 
+/**
+ * The Class InstituteView.
+ */
 @SpringView(name = InstituteView.VIEW_NAME)
 public class InstituteView extends AbstractBaseView<Institute> {
 
+	/** The Constant VIEW_NAME. */
 	public static final String VIEW_NAME = "institute";
 
 	@Autowired
@@ -23,6 +27,9 @@ public class InstituteView extends AbstractBaseView<Institute> {
 	@Autowired
 	private InstituteRepository instituteRepository;
 
+	/**
+	 * Inits the.
+	 */
 	@PostConstruct
 	public void init() {
 		initLayout();

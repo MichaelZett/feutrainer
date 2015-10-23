@@ -19,14 +19,14 @@
  */
 package de.zettsystems.feutrainer.domain.organisation;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import de.zettsystems.feutrainer.domain.base.BaseRepository;
 
 /**
  * Repository for Department.
- * 
+ *
  * @author michael_zoeller
  * @created 26.08.2013
  */
-public interface DepartmentRepository extends JpaRepository<Department, Long> {
+public interface DepartmentRepository extends BaseRepository<Department> {
 
 }

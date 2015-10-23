@@ -29,10 +29,19 @@ import org.springframework.data.repository.NoRepositoryBean;
  * Base Repository.
  *
  * @author michael_zoeller
+ * @param <T>
+ *            the generic type
  * @created 21.10.2015
  */
 @NoRepositoryBean
 public interface BaseRepository<T> extends JpaRepository<T, Long> {
 
+	/**
+	 * Find all by.
+	 *
+	 * @param pageable
+	 *            the pageable
+	 * @return the list
+	 */
 	List<T> findAllBy(Pageable pageable);
 }

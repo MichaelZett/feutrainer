@@ -10,9 +10,16 @@ import de.zettsystems.feutrainer.domain.organisation.Institute;
 import de.zettsystems.feutrainer.domain.organisation.InstituteRepository;
 import de.zettsystems.feutrainer.ui.base.AbstractBaseTable;
 
+/**
+ * The Class InstituteTable.
+ */
 @SpringComponent
 @ViewScope
 public class InstituteTable extends AbstractBaseTable<Institute> {
+
+	/**
+	 * Instantiates a new institute table.
+	 */
 	public InstituteTable() {
 		super(Institute.class);
 	}

@@ -32,10 +32,21 @@ public class AbstractBaseEntity implements Serializable {
 	@NotBlank
 	private String name;
 
+	/**
+	 * Instantiates a new abstract base entity.
+	 */
 	public AbstractBaseEntity() {
 		super();
 	}
 
+	/**
+	 * Instantiates a new abstract base entity.
+	 *
+	 * @param id
+	 *            the id
+	 * @param name
+	 *            the name
+	 */
 	public AbstractBaseEntity(String id, String name) {
 		this();
 		this.id = id;
