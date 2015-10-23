@@ -17,7 +17,7 @@ public class InstituteEntryForm extends AbstractBaseForm<Institute> {
 	 *            the institute entry
 	 */
 	InstituteEntryForm(Institute instituteEntry) {
-		super(instituteEntry);
+		super(instituteEntry, null);
 	}
 
 	@Override

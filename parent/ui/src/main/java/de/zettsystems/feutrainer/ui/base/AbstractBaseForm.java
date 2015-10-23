@@ -11,6 +11,8 @@ import org.vaadin.viritin.layouts.MVerticalLayout;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.TextField;
 
+import de.zettsystems.feutrainer.domain.base.BaseRepository;
+
 /**
  * The Class AbstractBaseForm.
  *
@@ -30,11 +32,27 @@ public abstract class AbstractBaseForm<T> extends AbstractForm<T> {
 	 *
 	 * @param entry
 	 *            the entry
+	 * @param repository
+	 *            the repository
 	 */
-	public AbstractBaseForm(T entry) {
+	public AbstractBaseForm(T entry, BaseRepository<?> repository) {
 		super();
+		initializeAdditionalComponents(entry, repository);
 		setSizeUndefined();
 		setEntity(entry);
+		setEagerValidation(true);
+	}
+
+	/**
+	 * Initialize additional components.
+	 *
+	 * @param entry
+	 *            the entry
+	 * @param rpository
+	 *            the rpository
+	 */
+	protected void initializeAdditionalComponents(T entry, BaseRepository<?> rpository) {
+		// default do nothing
 	}
 
 	@Override
