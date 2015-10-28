@@ -112,7 +112,7 @@ public abstract class AbstractBaseView<T> extends VerticalLayout implements Base
 	 *            the entry
 	 */
 	protected void saveEntry(T entry) {
-		getRepository().save(entry);
+		getRepository().saveAndFlush(entry);
 		getTable().listEntities();
 		closeWindow();
 	}

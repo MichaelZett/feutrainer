@@ -24,6 +24,7 @@ import java.util.List;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.NoRepositoryBean;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Base Repository.
@@ -43,5 +44,6 @@ public interface BaseRepository<T> extends JpaRepository<T, Long> {
 	 *            the pageable
 	 * @return the list
 	 */
+	@Transactional
 	List<T> findAllBy(Pageable pageable);
 }

@@ -4,7 +4,7 @@
 
 	<groupId>de.zettsystems.feutrainer</groupId>
 	<artifactId>parent</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<properties>
@@ -30,13 +30,13 @@
 
 	<dependencyManagement>
 		<dependencies>
-		<dependency>
-	        <groupId>org.springframework.boot</groupId>
-	        <artifactId>spring-boot-dependencies</artifactId>
-	        <version>${spring.boot.version}</version>
-	        <type>pom</type>
-	        <scope>import</scope>
-	      </dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${spring.boot.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-starter</artifactId>
@@ -154,8 +154,8 @@
 	</build>
 	<repositories>
 		<repository>
-		   <id>vaadin-addons</id>
-		   <url>http://maven.vaadin.com/vaadin-addons</url>
+			<id>vaadin-addons</id>
+			<url>http://maven.vaadin.com/vaadin-addons</url>
 		</repository>
 	</repositories>
 </project>

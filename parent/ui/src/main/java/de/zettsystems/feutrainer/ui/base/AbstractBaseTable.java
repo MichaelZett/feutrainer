@@ -45,7 +45,7 @@ public abstract class AbstractBaseTable<T> extends MTable<T> {
 								asc ? Sort.Direction.ASC : Sort.Direction.DESC,
 								sortProperty == null ? getDefaultSortProperty() : sortProperty)),
 				() -> (int) getRepository().count(), PAGESIZE));
-
+		markAsDirty();
 	}
 
 	/**
@@ -93,7 +93,7 @@ public abstract class AbstractBaseTable<T> extends MTable<T> {
 	 * @return the string[]
 	 */
 	protected String[] initializeBasicHeaderCaptions() {
-		return new String[] { "Institute Id", "Institute Name" };
+		return new String[] { "Id", "Name" };
 	}
 
 	/**
