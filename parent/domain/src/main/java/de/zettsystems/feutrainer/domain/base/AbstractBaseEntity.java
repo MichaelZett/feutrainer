@@ -140,4 +140,8 @@ public class AbstractBaseEntity implements Serializable {
 		return true;
 	}
 
+	public String toPresentation() {
+		return this.id;
+	}
+
 }

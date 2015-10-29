@@ -37,6 +37,8 @@ public abstract class AbstractBaseForm<T> extends AbstractForm<T> {
 	 */
 	public AbstractBaseForm(T entry, BaseRepository<?> repository) {
 		super();
+		this.id.setWidth("200px");
+		this.name.setWidth("750px");
 		initializeAdditionalComponents(entry, repository);
 		setSizeUndefined();
 		setEntity(entry);

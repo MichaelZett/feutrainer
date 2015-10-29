@@ -2,13 +2,17 @@ package de.zettsystems.feutrainer.ui.courses;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.vaadin.data.util.converter.StringToCollectionConverter;
 import com.vaadin.spring.annotation.SpringComponent;
 import com.vaadin.spring.annotation.ViewScope;
 
+import de.zettsystems.feutrainer.domain.base.AbstractBaseEntity;
 import de.zettsystems.feutrainer.domain.base.BaseRepository;
 import de.zettsystems.feutrainer.domain.courses.Course;
 import de.zettsystems.feutrainer.domain.courses.CourseRepository;
 import de.zettsystems.feutrainer.ui.base.AbstractBaseTable;
+import de.zettsystems.feutrainer.ui.base.StringToAbstractBaseEntityConverter;
+import de.zettsystems.feutrainer.ui.base.StringToCollectionCountConverter;
 
 @SpringComponent
 @ViewScope
@@ -18,6 +22,9 @@ public class CourseTable extends AbstractBaseTable<Course> {
 
 	public CourseTable() {
 		super(Course.class);
+		setConverter("chairs",
+				new StringToCollectionConverter(new StringToAbstractBaseEntityConverter(), AbstractBaseEntity.class));
+		setConverter("courseUnits", new StringToCollectionCountConverter());
 	}
 
 	@Override
@@ -37,7 +44,7 @@ public class CourseTable extends AbstractBaseTable<Course> {
 
 	@Override
 	protected String[] initializeAdditionalHeaderCaptions() {
-		return new String[] { "Chairs", "Course Units" };
+		return new String[] { "Chairs", "Course Units Count" };
 	}
 
 }
