@@ -19,7 +19,9 @@ import de.zettsystems.feutrainer.domain.organisation.Chair;
  * @created 08.10.2015
  */
 @Entity
-public class CourseUnit extends AbstractBaseEntity {
+public class CourseUnit extends AbstractBaseEntity implements Comparable<CourseUnit> {
+
+	private static final String KE_IDENTIFIER = "KE";
 
 	@ManyToOne(optional = false)
 	@NotNull
@@ -88,6 +90,17 @@ public class CourseUnit extends AbstractBaseEntity {
 	 */
 	public void setChair(Chair chair) {
 		this.chair = chair;
+	}
+
+	@Override
+	public int compareTo(CourseUnit o) {
+		int ownId = convertIdToCourseUnitNumber(getId());
+		int otherId = convertIdToCourseUnitNumber(o.getId());
+		return Integer.compare(ownId, otherId);
+	}
+
+	private int convertIdToCourseUnitNumber(String id) {
+		return Integer.parseInt(id.substring(getId().indexOf(KE_IDENTIFIER) + KE_IDENTIFIER.length()));
 	}
 
 }

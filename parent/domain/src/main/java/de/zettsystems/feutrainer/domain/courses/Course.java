@@ -6,6 +6,7 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
@@ -22,11 +23,11 @@ import de.zettsystems.feutrainer.domain.organisation.Chair;
 @Entity
 public class Course extends AbstractBaseEntity {
 
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	private Set<Chair> chairs = new HashSet<>();
 
 	/** The units. */
-	@OneToMany(mappedBy = "course")
+	@OneToMany(mappedBy = "course", fetch = FetchType.EAGER)
 	@OrderBy("id")
 	private SortedSet<CourseUnit> courseUnits = new TreeSet<>();
 
@@ -54,7 +55,7 @@ public class Course extends AbstractBaseEntity {
 	 *
 	 * @return the units
 	 */
-	public SortedSet<CourseUnit> getCourceUnits() {
+	public SortedSet<CourseUnit> getCourseUnits() {
 		return this.courseUnits;
 	}
 

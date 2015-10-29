@@ -19,7 +19,7 @@
  */
 package de.zettsystems.feutrainer.domain.courses;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import de.zettsystems.feutrainer.domain.base.BaseRepository;
 
 /**
  * Repository for Courses.
@@ -27,6 +27,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @author michael_zoeller
  * @created 26.08.2013
  */
-public interface CourseRepository extends JpaRepository<Course, Long> {
+public interface CourseRepository extends BaseRepository<Course> {
 
 }

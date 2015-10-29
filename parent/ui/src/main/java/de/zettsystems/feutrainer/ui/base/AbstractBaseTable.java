@@ -39,13 +39,13 @@ public abstract class AbstractBaseTable<T> extends MTable<T> {
 	 */
 	@SuppressWarnings("unchecked")
 	public void listEntities() {
-		this.setBeans(new SortableLazyList<Institute>(
+		setBeans(new SortableLazyList<Institute>(
 				(firstRow, asc,
 						sortProperty) -> getRepository().findAllBy(new PageRequest(firstRow / PAGESIZE, PAGESIZE,
 								asc ? Sort.Direction.ASC : Sort.Direction.DESC,
 								sortProperty == null ? getDefaultSortProperty() : sortProperty)),
 				() -> (int) getRepository().count(), PAGESIZE));
-		markAsDirty();
+		setValue(null);
 	}
 
 	/**
