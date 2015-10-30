@@ -2,10 +2,11 @@ package de.zettsystems.feutrainer.ui;
 
 import javax.annotation.PostConstruct;
 
+import org.vaadin.viritin.label.RichText;
+
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.spring.annotation.SpringView;
-import com.vaadin.ui.Label;
 import com.vaadin.ui.VerticalLayout;
 
 /**
@@ -22,7 +23,7 @@ public class StartView extends VerticalLayout implements View {
 	 */
 	@PostConstruct
 	void init() {
-		this.addComponent(new Label("Welcome to FeU Trainer"));
+		this.addComponent(new RichText().withMarkDownResource("/README.md"));
 	}
 
 	@Override

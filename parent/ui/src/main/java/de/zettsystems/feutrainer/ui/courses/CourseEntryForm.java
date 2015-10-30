@@ -1,5 +1,7 @@
 package de.zettsystems.feutrainer.ui.courses;
 
+import java.util.List;
+
 import org.vaadin.viritin.fields.MultiSelectTable;
 
 import com.vaadin.ui.Component;
@@ -21,16 +23,24 @@ public class CourseEntryForm extends AbstractBaseForm<Course> {
 	@Override
 	protected void initializeAdditionalComponents(Course entry, BaseRepository<?> repository) {
 		ChairRepository repo = (ChairRepository) repository;
-		this.chairs = new MultiSelectTable<Chair>("Chairs").withProperties("id")
-				.withColumnHeaderMode(Table.ColumnHeaderMode.HIDDEN);
+		this.chairs = new MultiSelectTable<Chair>("Chairs").withColumnHeaderMode(Table.ColumnHeaderMode.HIDDEN);
 		this.chairs.setHeight("120px");
 		this.chairs.setWidth("200px");
-		this.chairs.setOptions(repo.findAll());
+		List<Chair> allChairs = repo.findAll();
+		this.chairs.setOptions(allChairs);
+		if (!allChairs.isEmpty()) {
+			this.chairs = this.chairs.withProperties("id");
+		}
 	}
 
 	@Override
 	protected Component[] getAdditionalFields() {
 		return new Component[] { this.chairs };
+	}
+
+	@Override
+	protected String getWidthForNameTextField() {
+		return "500px";
 	}
 
 }

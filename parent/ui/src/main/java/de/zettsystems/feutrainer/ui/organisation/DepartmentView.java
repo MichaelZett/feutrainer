@@ -59,8 +59,8 @@ public class DepartmentView extends AbstractBaseView<Department> {
 	}
 
 	@Override
-	protected String getCaptionResourcePath() {
-		return "/departmentCaption.md";
+	protected String getCaptionHtml() {
+		return "<h3 class=\"master-data-caption\"><strong>Department Master Data</strong></h3>";
 	}
 
 }

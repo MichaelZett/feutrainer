@@ -59,8 +59,8 @@ public class CourseView extends AbstractBaseView<Course> {
 	}
 
 	@Override
-	protected String getCaptionResourcePath() {
-		return "/courseCaption.md";
+	protected String getCaptionHtml() {
+		return "<h3 class=\"master-data-caption\"><strong>Course Master Data</strong></h3>";
 	}
 
 }

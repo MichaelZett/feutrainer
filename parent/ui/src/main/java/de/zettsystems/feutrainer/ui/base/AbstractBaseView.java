@@ -37,8 +37,8 @@ public abstract class AbstractBaseView<T> extends VerticalLayout implements Base
 	 * Inits the layout.
 	 */
 	protected void initLayout() {
-		this.addComponent(new MVerticalLayout(new RichText().withMarkDownResource(getCaptionResourcePath()),
-				new MHorizontalLayout(this.addNew, this.edit, this.delete), getTable()).expand(getTable()));
+		this.addComponent(new MVerticalLayout(new MHorizontalLayout(new RichText().withSafeHtml(getCaptionHtml()),
+				this.addNew, this.edit, this.delete), getTable()).expand(getTable()));
 		getTable().listEntities();
 		getTable().addMValueChangeListener(e -> adjustActionButtonState());
 
@@ -163,6 +163,6 @@ public abstract class AbstractBaseView<T> extends VerticalLayout implements Base
 	 *
 	 * @return the caption resource path
 	 */
-	protected abstract String getCaptionResourcePath();
+	protected abstract String getCaptionHtml();
 
 }

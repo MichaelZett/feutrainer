@@ -59,8 +59,8 @@ public class ChairView extends AbstractBaseView<Chair> {
 	}
 
 	@Override
-	protected String getCaptionResourcePath() {
-		return "/chairCaption.md";
+	protected String getCaptionHtml() {
+		return "<h3 class=\"master-data-caption\"><strong>Chair Master Data</strong></h3>";
 	}
 
 }

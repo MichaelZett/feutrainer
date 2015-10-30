@@ -25,4 +25,9 @@ public class InstituteEntryForm extends AbstractBaseForm<Institute> {
 		return new Component[0];
 	}
 
+	@Override
+	protected String getWidthForNameTextField() {
+		return "500px";
+	}
+
 }

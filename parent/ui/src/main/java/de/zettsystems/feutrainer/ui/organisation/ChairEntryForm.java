@@ -38,4 +38,10 @@ public class ChairEntryForm extends AbstractBaseForm<Chair> {
 		return new Component[] { this.department };
 	}
 
+	@Override
+	protected String getWidthForNameTextField() {
+		return "750px";
+
+	}
+
 }

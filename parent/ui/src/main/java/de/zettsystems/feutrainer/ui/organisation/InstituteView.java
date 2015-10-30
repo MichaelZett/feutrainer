@@ -56,8 +56,8 @@ public class InstituteView extends AbstractBaseView<Institute> {
 	}
 
 	@Override
-	protected String getCaptionResourcePath() {
-		return "/instituteCaption.md";
+	protected String getCaptionHtml() {
+		return "<h3 class=\"master-data-caption\"><strong>Institute Master Data</strong></h3>";
 	}
 
 }

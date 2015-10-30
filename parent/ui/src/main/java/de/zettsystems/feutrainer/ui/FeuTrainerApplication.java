@@ -20,6 +20,7 @@
 package de.zettsystems.feutrainer.ui;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.vaadin.viritin.label.RichText;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.navigator.Navigator;
@@ -66,6 +67,8 @@ public class FeuTrainerApplication extends UI {
 		root.setMargin(true);
 		root.setSpacing(true);
 		setContent(root);
+
+		root.addComponent(new RichText().withSafeHtml("<h1><strong>FeU Trainer</strong> - by ZettSystems</h1>"));
 
 		final CssLayout navigationBar = new CssLayout();
 		navigationBar.addStyleName(ValoTheme.LAYOUT_COMPONENT_GROUP);
