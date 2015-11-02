@@ -2,16 +2,23 @@ package de.zettsystems.feutrainer.ui;
 
 import javax.annotation.PostConstruct;
 
+import org.springframework.security.access.annotation.Secured;
+import org.vaadin.spring.sidebar.annotation.FontAwesomeIcon;
+import org.vaadin.spring.sidebar.annotation.SideBarItem;
 import org.vaadin.viritin.label.RichText;
 
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
+import com.vaadin.server.FontAwesome;
 import com.vaadin.spring.annotation.SpringView;
 import com.vaadin.ui.VerticalLayout;
 
 /**
  * The Class StartView.
  */
+@Secured({ "ROLE_DATA", "ROLE_ADMIN", "ROLE_STUDENT" })
+@SideBarItem(sectionId = Sections.GENERAL, caption = "Start Page")
+@FontAwesomeIcon(FontAwesome.INFO)
 @SpringView(name = StartView.VIEW_NAME)
 public class StartView extends VerticalLayout implements View {
 

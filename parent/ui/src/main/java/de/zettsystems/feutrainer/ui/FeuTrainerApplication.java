@@ -20,24 +20,23 @@
 package de.zettsystems.feutrainer.ui;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.vaadin.spring.security.VaadinSecurity;
+import org.vaadin.spring.security.util.SecurityExceptionUtils;
+import org.vaadin.spring.sidebar.components.ValoSideBar;
+import org.vaadin.spring.sidebar.security.VaadinSecurityItemFilter;
 import org.vaadin.viritin.label.RichText;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.navigator.Navigator;
+import com.vaadin.server.DefaultErrorHandler;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.spring.annotation.SpringUI;
 import com.vaadin.spring.navigator.SpringViewProvider;
-import com.vaadin.ui.Button;
-import com.vaadin.ui.CssLayout;
+import com.vaadin.ui.HorizontalLayout;
+import com.vaadin.ui.Notification;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
-import com.vaadin.ui.themes.ValoTheme;
-
-import de.zettsystems.feutrainer.ui.courses.CourseView;
-import de.zettsystems.feutrainer.ui.organisation.ChairView;
-import de.zettsystems.feutrainer.ui.organisation.DepartmentView;
-import de.zettsystems.feutrainer.ui.organisation.InstituteView;
 
 /**
  * Main application ui.
@@ -51,6 +50,10 @@ public class FeuTrainerApplication extends UI {
 
 	@Autowired
 	private SpringViewProvider viewProvider;
+	@Autowired
+	private VaadinSecurity vaadinSecurity;
+	@Autowired
+	private ValoSideBar sideBar;
 
 	/**
 	 * @see com.vaadin.ui.UI#init(com.vaadin.server.VaadinRequest)
@@ -62,39 +65,47 @@ public class FeuTrainerApplication extends UI {
 	}
 
 	private void initLayout() {
-		final VerticalLayout root = new VerticalLayout();
-		root.setSizeFull();
-		root.setMargin(true);
-		root.setSpacing(true);
-		setContent(root);
+		setErrorHandler(createErrorHandler());
 
-		root.addComponent(new RichText().withSafeHtml("<h1><strong>FeU Trainer</strong> - by ZettSystems</h1>"));
+		final HorizontalLayout body = new HorizontalLayout();
+		body.setSizeFull();
 
-		final CssLayout navigationBar = new CssLayout();
-		navigationBar.addStyleName(ValoTheme.LAYOUT_COMPONENT_GROUP);
-
-		navigationBar.addComponent(createNavigationButton("Start View", StartView.VIEW_NAME));
-		navigationBar.addComponent(createNavigationButton("Institute View", InstituteView.VIEW_NAME));
-		navigationBar.addComponent(createNavigationButton("Department View", DepartmentView.VIEW_NAME));
-		navigationBar.addComponent(createNavigationButton("Chair View", ChairView.VIEW_NAME));
-		navigationBar.addComponent(createNavigationButton("Course View", CourseView.VIEW_NAME));
-
-		root.addComponent(navigationBar);
+		this.sideBar.setItemFilter(new VaadinSecurityItemFilter(this.vaadinSecurity));
+		body.addComponent(this.sideBar);
 
 		final Panel viewContainer = new Panel();
 		viewContainer.setSizeFull();
-		root.addComponent(viewContainer);
-		root.setExpandRatio(viewContainer, 1.0f);
+		body.addComponent(viewContainer);
+		body.setExpandRatio(viewContainer, 1.0f);
+
+		final VerticalLayout root = new VerticalLayout();
+		root.setSizeFull();
+		root.setMargin(true);
+		RichText headerCaption = new RichText().withSafeHtml("<h1><strong>FeU Trainer</strong> - by ZettSystems</h1>");
+		root.addComponent(headerCaption);
+		root.addComponent(body);
+		root.setExpandRatio(headerCaption, 1);
+		root.setExpandRatio(body, 9);
 
 		Navigator navigator = new Navigator(this, viewContainer);
+		this.viewProvider.setAccessDeniedViewClass(AccessDeniedView.class);
 		navigator.addProvider(this.viewProvider);
+		navigator.setErrorView(ErrorView.class);
+		navigator.navigateTo(navigator.getState());
+		setContent(root);
 	}
 
-	private Button createNavigationButton(String caption, final String viewName) {
-		Button button = new Button(caption);
-		button.addStyleName(ValoTheme.BUTTON_SMALL);
-		button.addClickListener(event -> getUI().getNavigator().navigateTo(viewName));
-		return button;
+	private DefaultErrorHandler createErrorHandler() {
+		return new DefaultErrorHandler() {
+			@Override
+			public void error(com.vaadin.server.ErrorEvent event) {
+				if (SecurityExceptionUtils.isAccessDeniedException(event.getThrowable())) {
+					Notification.show("Sorry, you don't have access to do that.");
+				} else {
+					super.error(event);
+				}
+			}
+		};
 	}
 
 }

@@ -3,19 +3,27 @@ package de.zettsystems.feutrainer.ui.organisation;
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
+import org.vaadin.spring.sidebar.annotation.FontAwesomeIcon;
+import org.vaadin.spring.sidebar.annotation.SideBarItem;
 import org.vaadin.viritin.form.AbstractForm;
 
+import com.vaadin.server.FontAwesome;
 import com.vaadin.spring.annotation.SpringView;
 
 import de.zettsystems.feutrainer.domain.base.BaseRepository;
 import de.zettsystems.feutrainer.domain.organisation.Institute;
 import de.zettsystems.feutrainer.domain.organisation.InstituteRepository;
+import de.zettsystems.feutrainer.ui.Sections;
 import de.zettsystems.feutrainer.ui.base.AbstractBaseTable;
 import de.zettsystems.feutrainer.ui.base.AbstractBaseView;
 
 /**
  * The Class InstituteView.
  */
+@Secured({ "ROLE_DATA", "ROLE_ADMIN" })
+@SideBarItem(sectionId = Sections.MASTER_DATA, caption = "Institutes")
+@FontAwesomeIcon(FontAwesome.SITEMAP)
 @SpringView(name = InstituteView.VIEW_NAME)
 public class InstituteView extends AbstractBaseView<Institute> {
 

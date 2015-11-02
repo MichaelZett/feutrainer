@@ -9,7 +9,8 @@ Project to create a spring boot vaadin trainer app for FeU courses.
 
 ## 0.3.0 (in progress)
 * add missing views: course unit, chapter
-* add new navigator
+* add new navigator (ok)
+* add basic security (ok)
 * create initial data set for 31071 and use liquibase
 
 ## 0.4.0 (planned)
@@ -18,7 +19,8 @@ Project to create a spring boot vaadin trainer app for FeU courses.
 * add first basic JBehave tests
 
 ## 0.5.0 (planned)
-* add user, role, security concept
+* add db based security 
+* add user and user_role view
 * use more JBehave tests
 
 ## 0.6.0 (planned 20.01.16)
