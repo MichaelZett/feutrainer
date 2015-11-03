@@ -8,13 +8,14 @@ Project to create a spring boot vaadin trainer app for FeU courses.
 * implemented converter and sued fields for multi-selection
 
 0.3.0 (in progress)
-* add missing views: course unit, chapter
+* add missing views: course unit (ok), chapter
 * add new navigator (ok)
 * add basic security (ok)
 * create initial data set for 31071 and use liquibase
 
 0.4.0 (planned)
 * add missing views: question, answers
+* create better layout
 * add unit tests where necessary
 * add first basic JBehave tests
 

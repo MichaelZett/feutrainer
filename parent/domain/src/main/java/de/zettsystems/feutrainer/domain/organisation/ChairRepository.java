@@ -19,7 +19,13 @@
  */
 package de.zettsystems.feutrainer.domain.organisation;
 
+import java.util.List;
+
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
 import de.zettsystems.feutrainer.domain.base.BaseRepository;
+import de.zettsystems.feutrainer.domain.courses.Course;
 
 /**
  * Repository for Chairs.
@@ -28,5 +34,7 @@ import de.zettsystems.feutrainer.domain.base.BaseRepository;
  * @created 26.08.2013
  */
 public interface ChairRepository extends BaseRepository<Chair> {
+	@Query("select ch from Course co join co.chairs ch where co = :course")
+	List<Chair> findAllChairsForCourse(@Param("course") Course course);
 
 }

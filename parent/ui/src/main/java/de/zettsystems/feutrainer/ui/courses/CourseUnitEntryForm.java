@@ -28,7 +28,7 @@ public class CourseUnitEntryForm extends AbstractBaseForm<CourseUnit> {
 
 	@Override
 	protected Component[] getAdditionalFields() {
-		return new Component[] { this.chair, this.course };
+		return new Component[] { this.course, this.chair };
 	}
 
 	@Override
@@ -36,22 +36,24 @@ public class CourseUnitEntryForm extends AbstractBaseForm<CourseUnit> {
 		ChairRepository chairRepository = (ChairRepository) repository[0];
 		initializeChairSelect(entry, chairRepository);
 		CourseRepository courseRepository = (CourseRepository) repository[1];
-		initializeCourseSelect(entry, courseRepository);
+		initializeCourseSelect(entry, courseRepository, chairRepository);
 	}
 
-	private void initializeCourseSelect(CourseUnit entry, CourseRepository courseRepository) {
+	private void initializeCourseSelect(CourseUnit entry, CourseRepository courseRepository,
+			ChairRepository chairRepository) {
 		this.course = new TypedSelect<>(Course.class);
 		this.course.setCaption("Course");
 		this.course.setOptions(courseRepository.findAll());
 		this.course.addMValueChangeListener(event -> {
 			entry.setCourse(event.getValue());
+			this.chair.setOptions(chairRepository.findAllChairsForCourse(entry.getCourse()));
 		});
 	}
 
 	private void initializeChairSelect(CourseUnit entry, ChairRepository chairRepository) {
 		this.chair = new TypedSelect<>(Chair.class);
 		this.chair.setCaption("Chair");
-		this.chair.setOptions(chairRepository.findAll());
+		this.chair.setOptions(chairRepository.findAllChairsForCourse(entry.getCourse()));
 		this.chair.addMValueChangeListener(event -> {
 			entry.setChair(event.getValue());
 		});
