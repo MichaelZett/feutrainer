@@ -30,8 +30,8 @@ public class DepartmentEntryForm extends AbstractBaseForm<Department> {
 	}
 
 	@Override
-	protected void initializeAdditionalComponents(Department entry, BaseRepository<?> repository) {
-		InstituteRepository instituteRepository = (InstituteRepository) repository;
+	protected void initializeAdditionalComponents(Department entry, BaseRepository<?>... repository) {
+		InstituteRepository instituteRepository = (InstituteRepository) repository[0];
 		initializeInstituteSelect(entry, instituteRepository);
 	}
 

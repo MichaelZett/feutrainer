@@ -19,7 +19,14 @@
  */
 package de.zettsystems.feutrainer.domain.courses;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.List;
+
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.EntityGraph;
+import org.springframework.data.jpa.repository.EntityGraph.EntityGraphType;
+import org.springframework.transaction.annotation.Transactional;
+
+import de.zettsystems.feutrainer.domain.base.BaseRepository;
 
 /**
  * Repository for Courses.
@@ -27,6 +34,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @author michael_zoeller
  * @created 26.08.2013
  */
-public interface CourseUnitRepository extends JpaRepository<CourseUnit, Long> {
-
+public interface CourseUnitRepository extends BaseRepository<CourseUnit> {
+	@Override
+	@EntityGraph(value = "graph.Course.CourseUnit.id", type = EntityGraphType.LOAD)
+	@Transactional
+	List<CourseUnit> findAllBy(Pageable pageable);
 }

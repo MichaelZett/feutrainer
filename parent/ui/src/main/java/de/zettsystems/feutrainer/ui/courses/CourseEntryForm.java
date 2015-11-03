@@ -21,8 +21,8 @@ public class CourseEntryForm extends AbstractBaseForm<Course> {
 	}
 
 	@Override
-	protected void initializeAdditionalComponents(Course entry, BaseRepository<?> repository) {
-		ChairRepository repo = (ChairRepository) repository;
+	protected void initializeAdditionalComponents(Course entry, BaseRepository<?>... repository) {
+		ChairRepository repo = (ChairRepository) repository[0];
 		this.chairs = new MultiSelectTable<Chair>("Chairs").withColumnHeaderMode(Table.ColumnHeaderMode.HIDDEN);
 		this.chairs.setHeight("120px");
 		this.chairs.setWidth("200px");

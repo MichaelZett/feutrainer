@@ -19,8 +19,8 @@ public class ChairEntryForm extends AbstractBaseForm<Chair> {
 	}
 
 	@Override
-	protected void initializeAdditionalComponents(Chair entry, BaseRepository<?> repository) {
-		DepartmentRepository departmentRepository = (DepartmentRepository) repository;
+	protected void initializeAdditionalComponents(Chair entry, BaseRepository<?>... repository) {
+		DepartmentRepository departmentRepository = (DepartmentRepository) repository[0];
 		initializeDepartmentSelect(entry, departmentRepository);
 	}
 

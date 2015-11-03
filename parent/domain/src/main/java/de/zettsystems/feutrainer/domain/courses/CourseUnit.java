@@ -1,12 +1,9 @@
 package de.zettsystems.feutrainer.domain.courses;
 
-import java.util.SortedSet;
-import java.util.TreeSet;
-
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OrderBy;
+import javax.persistence.NamedAttributeNode;
+import javax.persistence.NamedEntityGraph;
 import javax.validation.constraints.NotNull;
 
 import de.zettsystems.feutrainer.domain.base.AbstractBaseEntity;
@@ -19,6 +16,8 @@ import de.zettsystems.feutrainer.domain.organisation.Chair;
  * @created 08.10.2015
  */
 @Entity
+@NamedEntityGraph(name = "graph.Course.CourseUnit.id", attributeNodes = { @NamedAttributeNode(value = "chair"),
+		@NamedAttributeNode(value = "course", subgraph = "graph.CourseUnit.id") })
 public class CourseUnit extends AbstractBaseEntity implements Comparable<CourseUnit> {
 
 	private static final String KE_IDENTIFIER = "KE";
@@ -30,10 +29,6 @@ public class CourseUnit extends AbstractBaseEntity implements Comparable<CourseU
 	@ManyToOne(optional = false)
 	@NotNull
 	private Chair chair;
-
-	@OneToMany(mappedBy = "courseUnit")
-	@OrderBy("id")
-	private SortedSet<Chapter> chapters = new TreeSet<>();
 
 	/**
 	 * Gets the course.
@@ -52,25 +47,6 @@ public class CourseUnit extends AbstractBaseEntity implements Comparable<CourseU
 	 */
 	public void setCourse(Course course) {
 		this.course = course;
-	}
-
-	/**
-	 * Gets the chapters.
-	 *
-	 * @return the chapters
-	 */
-	public SortedSet<Chapter> getChapters() {
-		return this.chapters;
-	}
-
-	/**
-	 * Adds the chapter.
-	 *
-	 * @param chapter
-	 *            the chapter
-	 */
-	public void addChapter(Chapter chapter) {
-		this.chapters.add(chapter);
 	}
 
 	/**
@@ -94,13 +70,16 @@ public class CourseUnit extends AbstractBaseEntity implements Comparable<CourseU
 
 	@Override
 	public int compareTo(CourseUnit o) {
+		if (getId() == null || o.getId() == null) {
+			throw new IllegalStateException("Id not initialized or set.");
+		}
 		int ownId = convertIdToCourseUnitNumber(getId());
 		int otherId = convertIdToCourseUnitNumber(o.getId());
 		return Integer.compare(ownId, otherId);
 	}
 
 	private int convertIdToCourseUnitNumber(String id) {
-		return Integer.parseInt(id.substring(getId().indexOf(KE_IDENTIFIER) + KE_IDENTIFIER.length()));
+		return Integer.parseInt(id.substring(id.indexOf(KE_IDENTIFIER) + KE_IDENTIFIER.length()));
 	}
 
 }

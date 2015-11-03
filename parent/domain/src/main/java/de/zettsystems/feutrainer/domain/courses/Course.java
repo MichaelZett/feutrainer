@@ -8,6 +8,9 @@ import java.util.TreeSet;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedAttributeNode;
+import javax.persistence.NamedEntityGraph;
+import javax.persistence.NamedSubgraph;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 
@@ -21,9 +24,11 @@ import de.zettsystems.feutrainer.domain.organisation.Chair;
  * @created 08.10.2015
  */
 @Entity
+@NamedEntityGraph(name = "graph.CourseUnit.id", attributeNodes = { @NamedAttributeNode(value = "chairs"),
+		@NamedAttributeNode(value = "courseUnits", subgraph = "id") }, subgraphs = @NamedSubgraph(name = "id", attributeNodes = @NamedAttributeNode("id") ) )
 public class Course extends AbstractBaseEntity {
 
-	@ManyToMany(fetch = FetchType.EAGER)
+	@ManyToMany
 	private Set<Chair> chairs = new HashSet<>();
 
 	/** The units. */
