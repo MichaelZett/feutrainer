@@ -19,7 +19,11 @@
  */
 package de.zettsystems.feutrainer.domain.courses;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.List;
+
+import org.springframework.transaction.annotation.Transactional;
+
+import de.zettsystems.feutrainer.domain.base.BaseRepository;
 
 /**
  * Repository for Chapters.
@@ -27,6 +31,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @author michael_zoeller
  * @created 26.08.2013
  */
-public interface ChapterRepository extends JpaRepository<Chapter, Long> {
+public interface ChapterRepository extends BaseRepository<Chapter> {
+	@Transactional
+	List<Chapter> findAllByCourseUnit(CourseUnit courseUnit);
 
 }
