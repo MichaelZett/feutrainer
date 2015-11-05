@@ -1,6 +1,7 @@
 package de.zettsystems.feutrainer.ui.base;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Stream;
 
 import org.springframework.data.domain.PageRequest;
@@ -8,8 +9,9 @@ import org.springframework.data.domain.Sort;
 import org.vaadin.viritin.SortableLazyList;
 import org.vaadin.viritin.fields.MTable;
 
+import com.google.common.base.Strings;
+
 import de.zettsystems.feutrainer.domain.base.BaseRepository;
-import de.zettsystems.feutrainer.domain.organisation.Institute;
 
 /**
  * The Class AbstractBaseTable.
@@ -19,6 +21,8 @@ import de.zettsystems.feutrainer.domain.organisation.Institute;
  */
 public abstract class AbstractBaseTable<T> extends MTable<T> {
 
+	private String idFilter = "";
+	private String nameFilter = "";
 	/** The Constant PAGESIZE. */
 	protected static final int PAGESIZE = 45;
 
@@ -34,18 +38,44 @@ public abstract class AbstractBaseTable<T> extends MTable<T> {
 				.setSortableProperties(initializeSortableProperties()).withFullWidth();
 	}
 
+	protected String getNameFilterText() {
+		return addWildcards(this.nameFilter);
+	}
+
+	public void setNameFilter(String newValue) {
+		this.nameFilter = newValue;
+	}
+
+	protected String getIdFilterText() {
+		return addWildcards(this.idFilter);
+	}
+
+	protected void setIdFilter(String newValue) {
+		this.idFilter = newValue;
+	}
+
 	/**
 	 * List entities.
 	 */
 	@SuppressWarnings("unchecked")
 	public void listEntities() {
-		setBeans(new SortableLazyList<Institute>(
-				(firstRow, asc,
-						sortProperty) -> getRepository().findAllBy(new PageRequest(firstRow / PAGESIZE, PAGESIZE,
-								asc ? Sort.Direction.ASC : Sort.Direction.DESC,
-								sortProperty == null ? getDefaultSortProperty() : sortProperty)),
-				() -> (int) getRepository().count(), PAGESIZE));
+		setBeans(new SortableLazyList<T>(
+				(firstRow, asc, sortProperty) -> retrieveFilteredBeans(firstRow, asc, sortProperty),
+				() -> retrieveCount(), PAGESIZE));
 		setValue(null);
+	}
+
+	protected int retrieveCount() {
+		return (int) getRepository().count();
+	}
+
+	protected List<T> retrieveFilteredBeans(int firstRow, boolean asc, String sortProperty) {
+		return getRepository().findAllBy(createPageRequest(firstRow, asc, sortProperty));
+	}
+
+	protected PageRequest createPageRequest(int firstRow, boolean asc, String sortProperty) {
+		return new PageRequest(firstRow / PAGESIZE, PAGESIZE, asc ? Sort.Direction.ASC : Sort.Direction.DESC,
+				sortProperty == null ? getDefaultSortProperty() : sortProperty);
 	}
 
 	/**
@@ -113,6 +143,14 @@ public abstract class AbstractBaseTable<T> extends MTable<T> {
 	 */
 	protected String[] initializeBasicSortableProperties() {
 		return new String[] { "id", "name" };
+	}
+
+	protected boolean isContentEmpty(String valueToCheck) {
+		return Strings.isNullOrEmpty(valueToCheck) && valueToCheck.length() <= 2;
+	}
+
+	protected String addWildcards(String plainText) {
+		return "%" + plainText + "%";
 	}
 
 	/**

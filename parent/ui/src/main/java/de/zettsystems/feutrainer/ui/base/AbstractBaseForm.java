@@ -32,14 +32,14 @@ public abstract class AbstractBaseForm<T> extends AbstractForm<T> {
 	 *
 	 * @param entry
 	 *            the entry
-	 * @param repository
+	 * @param repositories
 	 *            the repository
 	 */
-	public AbstractBaseForm(T entry, BaseRepository<?>... repository) {
+	public AbstractBaseForm(T entry, BaseRepository<?>... repositories) {
 		super();
 		this.id.setWidth("200px");
 		this.name.setWidth(getWidthForNameTextField());
-		initializeAdditionalComponents(entry, repository);
+		initializeAdditionalComponents(entry, repositories);
 		setSizeUndefined();
 		setEntity(entry);
 		setEagerValidation(true);

@@ -40,7 +40,7 @@ public class ChapterEntryForm extends AbstractBaseForm<Chapter> {
 
 	private void initializeChapterSelect(Chapter entry, ChapterRepository chapterRepository) {
 		this.superChapter = new TypedSelect<>(Chapter.class);
-		this.superChapter.setCaption("Chapter");
+		this.superChapter.setCaption("Super Chapter");
 		this.superChapter.setOptions(chapterRepository.findAll());
 		this.superChapter.addMValueChangeListener(event -> {
 			entry.setSuperChapter(event.getValue());
@@ -50,7 +50,7 @@ public class ChapterEntryForm extends AbstractBaseForm<Chapter> {
 	private void initializeCourseUnitSelect(Chapter entry, CourseUnitRepository courseUnitRepository,
 			ChapterRepository chapterRepository) {
 		this.courseUnit = new TypedSelect<>(CourseUnit.class);
-		this.courseUnit.setCaption("Chair");
+		this.courseUnit.setCaption("CourseUnit");
 		this.courseUnit.setOptions(courseUnitRepository.findAll());
 		this.courseUnit.addMValueChangeListener(event -> {
 			entry.setCourseUnit(event.getValue());

@@ -21,6 +21,7 @@ package de.zettsystems.feutrainer.domain.courses;
 
 import java.util.List;
 
+import org.springframework.data.domain.Pageable;
 import org.springframework.transaction.annotation.Transactional;
 
 import de.zettsystems.feutrainer.domain.base.BaseRepository;
@@ -35,4 +36,16 @@ public interface ChapterRepository extends BaseRepository<Chapter> {
 	@Transactional
 	List<Chapter> findAllByCourseUnit(CourseUnit courseUnit);
 
+	@Transactional
+	List<Chapter> findAllByIdLikeAndNameLikeAndCourseUnit(String id, String name, CourseUnit courseUnit,
+			Pageable pageable);
+
+	@Transactional
+	List<Chapter> findAllByIdLikeAndNameLike(String id, String name, Pageable pageable);
+
+	@Transactional
+	long countByIdLikeAndNameLike(String id, String name);
+
+	@Transactional
+	long countByIdLikeAndNameLikeAndCourseUnit(String id, String name, CourseUnit courseUnitFilter);
 }

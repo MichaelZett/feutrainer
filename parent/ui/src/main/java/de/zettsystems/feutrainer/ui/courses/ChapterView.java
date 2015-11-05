@@ -10,6 +10,7 @@ import org.vaadin.viritin.form.AbstractForm;
 
 import com.vaadin.server.FontAwesome;
 import com.vaadin.spring.annotation.SpringView;
+import com.vaadin.ui.Window;
 
 import de.zettsystems.feutrainer.domain.base.BaseRepository;
 import de.zettsystems.feutrainer.domain.courses.Chapter;
@@ -38,12 +39,20 @@ public class ChapterView extends AbstractBaseView<Chapter> {
 	@Autowired
 	private CourseUnitRepository courseUnitRepository;
 
+	private ChapterFilterForm chapterFilterForm;
+
 	/**
 	 * Inits the View.
 	 */
 	@PostConstruct
 	public void init() {
 		initLayout();
+		this.chapterFilterForm = new ChapterFilterForm(this.chapterTable, this.courseUnitRepository);
+		this.chapterFilterForm.setCloseHandler(() -> {
+			setFilterLabel(this.chapterTable.getCurrentFilterStatus());
+			closeWindow();
+		});
+		this.filter.setVisible(true);
 	}
 
 	@Override
@@ -71,4 +80,8 @@ public class ChapterView extends AbstractBaseView<Chapter> {
 		return "<h3 class=\"master-data-caption\"><strong>Chapter Master Data</strong></h3>";
 	}
 
+	@Override
+	protected Window getFilterWindow() {
+		return this.chapterFilterForm;
+	}
 }

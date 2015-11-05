@@ -70,5 +70,4 @@ public class DepartmentView extends AbstractBaseView<Department> {
 	protected String getCaptionHtml() {
 		return "<h3 class=\"master-data-caption\"><strong>Department Master Data</strong></h3>";
 	}
-
 }

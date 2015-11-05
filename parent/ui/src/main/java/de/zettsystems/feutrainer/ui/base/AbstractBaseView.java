@@ -10,8 +10,10 @@ import org.vaadin.viritin.layouts.MVerticalLayout;
 import com.vaadin.server.FontAwesome;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.Label;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
+import com.vaadin.ui.Window;
 
 import de.zettsystems.feutrainer.domain.base.BaseRepository;
 
@@ -33,12 +35,19 @@ public abstract class AbstractBaseView<T> extends VerticalLayout implements Base
 	protected Button delete = new ConfirmButton(FontAwesome.TRASH_O, "Are you sure you want to delete the entry?",
 			this::remove);
 
+	/** The filter. */
+	protected Button filter = new MButton(FontAwesome.FILTER, this::filter);
+
+	/** The filter label. */
+	protected Label filterLabel = new Label();
+
 	/**
 	 * Inits the layout.
 	 */
 	protected void initLayout() {
+		this.filter.setVisible(false);
 		this.addComponent(new MVerticalLayout(new MHorizontalLayout(new RichText().withSafeHtml(getCaptionHtml()),
-				this.addNew, this.edit, this.delete), getTable()).expand(getTable()));
+				this.addNew, this.edit, this.delete, this.filter, this.filterLabel), getTable()).expand(getTable()));
 		getTable().listEntities();
 		getTable().addMValueChangeListener(e -> adjustActionButtonState());
 
@@ -60,6 +69,10 @@ public abstract class AbstractBaseView<T> extends VerticalLayout implements Base
 		UI.getCurrent().getWindows().stream().forEach(w -> UI.getCurrent().removeWindow(w));
 	}
 
+	protected void setFilterLabel(String newValue) {
+		this.filterLabel.setCaption(newValue);
+	}
+
 	/**
 	 * Adds the.
 	 *
@@ -71,13 +84,21 @@ public abstract class AbstractBaseView<T> extends VerticalLayout implements Base
 	}
 
 	/**
-	 * Edits the.
+	 * Edits the entry.
 	 *
 	 * @param e
 	 *            the e
 	 */
 	protected void edit(ClickEvent e) {
 		edit(getTable().getValue());
+	}
+
+	protected void filter(ClickEvent e) {
+		UI.getCurrent().addWindow(getFilterWindow());
+	}
+
+	protected Window getFilterWindow() {
+		return null;
 	}
 
 	/**
