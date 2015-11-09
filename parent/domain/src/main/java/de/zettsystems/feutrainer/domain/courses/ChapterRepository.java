@@ -34,18 +34,27 @@ import de.zettsystems.feutrainer.domain.base.BaseRepository;
  */
 public interface ChapterRepository extends BaseRepository<Chapter> {
 	@Transactional
-	List<Chapter> findAllByCourseUnit(CourseUnit courseUnit);
+	List<Chapter> findAllByCourseUnitAndIdLikeIgnoreCase(CourseUnit courseUnit, String id, Pageable pageable);
 
 	@Transactional
-	List<Chapter> findAllByIdLikeAndNameLikeAndCourseUnit(String id, String name, CourseUnit courseUnit,
-			Pageable pageable);
+	List<Chapter> findAllByIdLikeIgnoreCaseAndNameLikeIgnoreCaseAndCourseUnit(String id, String name,
+			CourseUnit courseUnit, Pageable pageable);
 
 	@Transactional
-	List<Chapter> findAllByIdLikeAndNameLike(String id, String name, Pageable pageable);
+	List<Chapter> findAllByIdLikeIgnoreCaseAndNameLikeIgnoreCase(String id, String name, Pageable pageable);
 
 	@Transactional
-	long countByIdLikeAndNameLike(String id, String name);
+	long countByCourseUnitAndIdLikeIgnoreCase(CourseUnit courseUnit, String id);
 
 	@Transactional
-	long countByIdLikeAndNameLikeAndCourseUnit(String id, String name, CourseUnit courseUnitFilter);
+	long countByIdLikeIgnoreCaseAndNameLikeIgnoreCase(String id, String name);
+
+	@Transactional
+	long countByIdLikeIgnoreCaseAndNameLikeIgnoreCaseAndCourseUnit(String id, String name, CourseUnit courseUnitFilter);
+
+	@Transactional
+	long countByNameLikeIgnoreCase(String name);
+
+	@Transactional
+	List<Chapter> findAllByCourseUnitAndNameLikeIgnoreCase(CourseUnit value, String name);
 }

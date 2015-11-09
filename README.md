@@ -12,11 +12,12 @@ Project to create a spring boot vaadin trainer app for FeU courses.
 * add new navigator (ok)
 * add basic security (ok)
 * explore filter for table chapter (ok)
-* explore filter/pageable for comboBox in chapter  
-* create initial data set for 31071 and use liquibase
+* explore filter/pageable for comboBox in chapter
+* refactor everything
 
 0.4.0 (planned)
 * add missing views: question, answers
+* create initial data set for 31071 and use liquibase
 * create better layout
 * add unit tests where necessary
 * add first basic JBehave tests

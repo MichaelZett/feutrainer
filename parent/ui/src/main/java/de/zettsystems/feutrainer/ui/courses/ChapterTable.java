@@ -33,21 +33,22 @@ public class ChapterTable extends AbstractBaseTable<Chapter> {
 	@Override
 	protected int retrieveCount() {
 		if (this.courseUnitFilter == null) {
-			return (int) this.chapterRepository.countByIdLikeAndNameLike(getIdFilterText(), getNameFilterText());
+			return (int) this.chapterRepository.countByIdLikeIgnoreCaseAndNameLikeIgnoreCase(getIdFilterText(),
+					getNameFilterText());
 		} else {
-			return (int) this.chapterRepository.countByIdLikeAndNameLikeAndCourseUnit(getIdFilterText(),
-					getNameFilterText(), this.courseUnitFilter);
+			return (int) this.chapterRepository.countByIdLikeIgnoreCaseAndNameLikeIgnoreCaseAndCourseUnit(
+					getIdFilterText(), getNameFilterText(), this.courseUnitFilter);
 		}
 	}
 
 	@Override
 	protected List<Chapter> retrieveFilteredBeans(int firstRow, boolean asc, String sortProperty) {
 		if (this.courseUnitFilter == null) {
-			return this.chapterRepository.findAllByIdLikeAndNameLike(getIdFilterText(), getNameFilterText(),
-					createPageRequest(firstRow, asc, sortProperty));
+			return this.chapterRepository.findAllByIdLikeIgnoreCaseAndNameLikeIgnoreCase(getIdFilterText(),
+					getNameFilterText(), createPageRequest(firstRow, asc, sortProperty));
 		} else {
 
-			return this.chapterRepository.findAllByIdLikeAndNameLikeAndCourseUnit(getIdFilterText(),
+			return this.chapterRepository.findAllByIdLikeIgnoreCaseAndNameLikeIgnoreCaseAndCourseUnit(getIdFilterText(),
 					getNameFilterText(), this.courseUnitFilter, createPageRequest(firstRow, asc, sortProperty));
 		}
 	}

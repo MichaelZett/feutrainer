@@ -12,7 +12,7 @@ import de.zettsystems.feutrainer.ui.base.AbstractBaseTable;
 import de.zettsystems.feutrainer.ui.base.AbstractFilterForm;
 
 public class ChapterFilterForm extends AbstractFilterForm<Chapter> {
-	private TypedSelect<CourseUnit> courseUnit;
+	private TypedSelect<CourseUnit> courseUnitSelect;
 	private ChapterTable chapterTable;
 
 	public ChapterFilterForm(ChapterTable chapterTable, CourseUnitRepository courseUnitRepository) {
@@ -22,7 +22,7 @@ public class ChapterFilterForm extends AbstractFilterForm<Chapter> {
 
 	@Override
 	protected Component[] getAdditionalFields() {
-		return new Component[] { this.courseUnit };
+		return new Component[] { this.courseUnitSelect };
 	}
 
 	@Override
@@ -33,10 +33,10 @@ public class ChapterFilterForm extends AbstractFilterForm<Chapter> {
 	@Override
 	protected void initializeAdditionalComponents(BaseRepository<?>... repositories) {
 		CourseUnitRepository courseUnitRepository = (CourseUnitRepository) repositories[0];
-		this.courseUnit = new TypedSelect<>(CourseUnit.class);
-		this.courseUnit.setCaption("CourseUnit");
-		this.courseUnit.setOptions(courseUnitRepository.findAll());
-		this.courseUnit.addMValueChangeListener(event -> setTableCourseUnit(event.getValue()));
+		this.courseUnitSelect = new TypedSelect<>(CourseUnit.class);
+		this.courseUnitSelect.setCaption("Course Unit");
+		this.courseUnitSelect.setOptions(courseUnitRepository.findAll());
+		this.courseUnitSelect.addMValueChangeListener(event -> setTableCourseUnit(event.getValue()));
 	}
 
 	private void setTableCourseUnit(CourseUnit value) {

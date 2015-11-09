@@ -44,4 +44,13 @@ public interface CourseUnitRepository extends BaseRepository<CourseUnit> {
 	@EntityGraph(value = "graph.Course.CourseUnit.id", type = EntityGraphType.LOAD)
 	@Transactional
 	List<CourseUnit> findAllBy(Pageable pageable);
+
+	@Override
+	@EntityGraph(value = "graph.Course.CourseUnit.id", type = EntityGraphType.LOAD)
+	@Transactional
+	List<CourseUnit> findAllByNameLikeIgnoreCase(String id);
+
+	@Transactional
+	long countByNameLikeIgnoreCase(String filter);
+
 }
