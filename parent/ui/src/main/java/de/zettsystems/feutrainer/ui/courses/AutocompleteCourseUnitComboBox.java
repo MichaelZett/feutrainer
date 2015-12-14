@@ -17,7 +17,7 @@ public class AutocompleteCourseUnitComboBox extends ComboBox {
 		final CourseUnitSuggestingContainer container = new CourseUnitSuggestingContainer(courseUnitRepository);
 		setContainerDataSource(container);
 		setImmediate(true);
-		addValueChangeListener(event -> container.setCourseUnitBean((CourseUnit) event.getProperty().getValue()));
+		addValueChangeListener(event -> container.setBean((CourseUnit) event.getProperty().getValue()));
 	}
 
 	@Override

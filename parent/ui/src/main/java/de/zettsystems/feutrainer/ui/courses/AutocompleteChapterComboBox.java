@@ -2,21 +2,24 @@ package de.zettsystems.feutrainer.ui.courses;
 
 import com.vaadin.ui.ComboBox;
 
+import de.zettsystems.feutrainer.domain.base.BaseRepository;
 import de.zettsystems.feutrainer.domain.courses.Chapter;
 import de.zettsystems.feutrainer.domain.courses.ChapterRepository;
+import de.zettsystems.feutrainer.ui.base.AbstractAutocompleteComboBox;
+import de.zettsystems.feutrainer.ui.base.BaseSuggestingContainer;
 
-public class AutocompleteChapterComboBox extends ComboBox {
+public class AutocompleteChapterComboBox extends AbstractAutocompleteComboBox<Chapter> {
+
+	private ComboBox courseUnit;
 
 	public AutocompleteChapterComboBox(ChapterRepository chapterRepository, ComboBox courseUnit) {
-		super("Super Chapter");
-		setItemCaptionMode(ItemCaptionMode.PROPERTY);
-		setItemCaptionPropertyId("name");
-		setWidth("500px");
+		super(chapterRepository, "Super Chapter");
 
-		final ChapterSuggestingContainer container = new ChapterSuggestingContainer(chapterRepository, courseUnit);
-		setContainerDataSource(container);
-		setImmediate(true);
-		addValueChangeListener(event -> container.setChapterBean((Chapter) event.getProperty().getValue()));
+	}
+
+	@Override
+	protected BaseSuggestingContainer<Chapter> getSuggestionContainer(BaseRepository<Chapter> repo) {
+		return new ChapterSuggestingContainer((ChapterRepository) repo, this.courseUnit);
 	}
 
 }

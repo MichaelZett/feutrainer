@@ -12,7 +12,7 @@ Project to create a spring boot vaadin trainer app for FeU courses.
 * add new navigator (ok)
 * add basic security (ok)
 * explore filter for table chapter (ok)
-* explore filter/pageable for comboBox in chapter
+* explore filter for comboBox in chapter (ok)
 * refactor everything
 
 0.4.0 (planned)

@@ -77,7 +77,7 @@ public class ChapterTable extends AbstractBaseTable<Chapter> {
 		if (this.courseUnitFilter == null && isContentEmpty(getIdFilterText()) && isContentEmpty(getNameFilterText())) {
 			return "";
 		} else {
-			StringBuffer buffer = new StringBuffer(" Filter active with: ");
+			StringBuilder buffer = new StringBuilder(" Filter active with: ");
 			if (!isContentEmpty(getIdFilterText())) {
 				buffer.append("id = " + getIdFilterText());
 			}
@@ -91,7 +91,7 @@ public class ChapterTable extends AbstractBaseTable<Chapter> {
 				if (buffer.length() > 0) {
 					buffer.append(" AND ");
 				}
-				buffer.append("course unit = " + this.courseUnitFilter.getId());
+				buffer.append("course unit = " + this.courseUnitFilter.getName());
 			}
 			return buffer.toString();
 		}

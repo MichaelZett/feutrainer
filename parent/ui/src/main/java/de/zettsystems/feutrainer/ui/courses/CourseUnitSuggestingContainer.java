@@ -1,38 +1,23 @@
 package de.zettsystems.feutrainer.ui.courses;
 
-import java.util.List;
-
 import com.vaadin.data.Container;
 import com.vaadin.data.Item;
-import com.vaadin.data.util.BeanItemContainer;
 import com.vaadin.data.util.filter.UnsupportedFilterException;
 
 import de.zettsystems.feutrainer.domain.courses.CourseUnit;
 import de.zettsystems.feutrainer.domain.courses.CourseUnitRepository;
+import de.zettsystems.feutrainer.ui.base.BaseSuggestingContainer;
 
-public class CourseUnitSuggestingContainer extends BeanItemContainer<CourseUnit> {
-	private CourseUnitRepository repo;
+public class CourseUnitSuggestingContainer extends BaseSuggestingContainer<CourseUnit> {
 
 	public CourseUnitSuggestingContainer(CourseUnitRepository repo) throws IllegalArgumentException {
-		super(CourseUnit.class);
-		this.repo = repo;
+		super(repo, CourseUnit.class);
 	}
 
 	@Override
 	protected void addFilter(Filter filter) throws UnsupportedFilterException {
 		SuggestionFilter suggestionFilter = (SuggestionFilter) filter;
 		filterItems(suggestionFilter.getFilterString());
-	}
-
-	private void filterItems(String filterString) {
-		removeAllItems();
-		List<CourseUnit> entities = this.repo.findAllByNameLikeIgnoreCase("%" + filterString + "%");
-		addAll(entities);
-	}
-
-	public void setCourseUnitBean(CourseUnit courseUnit) {
-		removeAllItems();
-		addBean(courseUnit);
 	}
 
 	public static class SuggestionFilter implements Container.Filter {

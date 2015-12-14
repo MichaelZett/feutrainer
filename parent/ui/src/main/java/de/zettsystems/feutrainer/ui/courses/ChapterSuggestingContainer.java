@@ -4,20 +4,20 @@ import java.util.List;
 
 import com.vaadin.data.Container;
 import com.vaadin.data.Item;
-import com.vaadin.data.util.BeanItemContainer;
 import com.vaadin.data.util.filter.UnsupportedFilterException;
 import com.vaadin.ui.ComboBox;
 
 import de.zettsystems.feutrainer.domain.courses.Chapter;
 import de.zettsystems.feutrainer.domain.courses.ChapterRepository;
 import de.zettsystems.feutrainer.domain.courses.CourseUnit;
+import de.zettsystems.feutrainer.ui.base.BaseSuggestingContainer;
 
-public class ChapterSuggestingContainer extends BeanItemContainer<Chapter> {
+public class ChapterSuggestingContainer extends BaseSuggestingContainer<Chapter> {
 	private ChapterRepository repo;
 	private ComboBox courseUnit;
 
 	public ChapterSuggestingContainer(ChapterRepository repo, ComboBox courseUnit) throws IllegalArgumentException {
-		super(Chapter.class);
+		super(repo, Chapter.class);
 		this.repo = repo;
 		this.courseUnit = courseUnit;
 	}
@@ -28,16 +28,12 @@ public class ChapterSuggestingContainer extends BeanItemContainer<Chapter> {
 		filterItems(suggestionFilter.getFilterString());
 	}
 
-	private void filterItems(String filterString) {
+	@Override
+	protected void filterItems(String filterString) {
 		removeAllItems();
 		List<Chapter> entities = this.repo.findAllByCourseUnitAndNameLikeIgnoreCase(
 				(CourseUnit) this.courseUnit.getValue(), "%" + filterString + "%");
 		addAll(entities);
-	}
-
-	public void setChapterBean(Chapter chapter) {
-		removeAllItems();
-		addBean(chapter);
 	}
 
 	public static class SuggestionFilter implements Container.Filter {
