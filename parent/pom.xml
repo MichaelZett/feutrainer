@@ -13,12 +13,11 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.build.resourcesEncoding>UTF-8</project.build.resourcesEncoding>
 		<spring.boot.version>1.3.0.RELEASE</spring.boot.version>
-		<guava.version>18.0</guava.version>
-		<vaadin.version>7.5.8</vaadin.version>
+		<guava.version>19.0</guava.version>
+		<vaadin.version>7.5.10</vaadin.version>
 		<vaadin.springboot.version>1.0.0</vaadin.springboot.version>
-		<usertype.extended.version>4.0.0.GA</usertype.extended.version>
-		<spring.version>4.2.2.RELEASE</spring.version>
-		<mysql.version>5.1.36</mysql.version>
+		<usertype.extended.version>5.0.0.GA</usertype.extended.version>
+		<mysql.version>5.1.38</mysql.version>
 		<hibernate-jpamodelgen.version>5.0.0.Final</hibernate-jpamodelgen.version>
 		<maven.compiler.plugin.version>3.3</maven.compiler.plugin.version>
 		<maven.war.plugin.version>2.6</maven.war.plugin.version>
