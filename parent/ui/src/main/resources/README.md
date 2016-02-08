@@ -15,7 +15,7 @@ Project to create a spring boot vaadin trainer app for FeU courses.
 * explore filter for comboBox in chapter 
 
 ## 0.4.0 (in progress)
-* add missing views: question(ok), answers
+* add missing views: question(ok), answers (ok)
 * create initial data set for 31071 and use liquibase
 * create better layout
 * add unit tests where necessary
@@ -28,7 +28,7 @@ Project to create a spring boot vaadin trainer app for FeU courses.
 * use more JBehave tests
 * refactor everything
 
-## 0.6.0 (planned 01.10.16)
+## 0.6.0 (planned 01.08.16)
 * add test creation and execution
 * start alpha-test
 
@@ -42,5 +42,5 @@ Project to create a spring boot vaadin trainer app for FeU courses.
 ## 0.9.0 (planned)
 * bugfixing
 
-## 1.0.0 (01.04.2017)
+## 1.0.0 (01.10.2016)
 * GA

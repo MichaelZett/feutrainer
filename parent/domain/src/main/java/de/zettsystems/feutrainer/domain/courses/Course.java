@@ -28,7 +28,7 @@ import de.zettsystems.feutrainer.domain.organisation.Chair;
 		@NamedAttributeNode(value = "courseUnits", subgraph = "id") }, subgraphs = @NamedSubgraph(name = "id", attributeNodes = @NamedAttributeNode("id") ) )
 public class Course extends AbstractBaseEntity {
 
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	private Set<Chair> chairs = new HashSet<>();
 
 	/** The units. */
