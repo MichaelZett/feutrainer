@@ -71,7 +71,7 @@ public class CourseUnit extends AbstractBaseEntity implements Comparable<CourseU
 	@Override
 	public int compareTo(CourseUnit o) {
 		if (getId() == null || o.getId() == null) {
-			throw new IllegalStateException("Id not initialized or set.");
+			return 0;
 		}
 		int ownId = convertIdToCourseUnitNumber(getId());
 		int otherId = convertIdToCourseUnitNumber(o.getId());
