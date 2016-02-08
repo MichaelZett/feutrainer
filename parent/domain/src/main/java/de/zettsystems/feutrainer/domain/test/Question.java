@@ -1,11 +1,7 @@
 package de.zettsystems.feutrainer.domain.test;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
 import de.zettsystems.feutrainer.domain.base.AbstractBaseEntity;
@@ -24,8 +20,6 @@ public class Question extends AbstractBaseEntity {
 	@ManyToOne(optional = false)
 	@NotNull
 	private Chapter chapter;
-	@OneToMany(mappedBy = "question")
-	private Set<Answer> answers = new HashSet<>();
 
 	/**
 	 * Gets the additional text.
@@ -82,25 +76,6 @@ public class Question extends AbstractBaseEntity {
 	 */
 	public void setChapter(Chapter chapter) {
 		this.chapter = chapter;
-	}
-
-	/**
-	 * Gets the answers.
-	 *
-	 * @return the answers
-	 */
-	public Set<Answer> getAnswers() {
-		return this.answers;
-	}
-
-	/**
-	 * Adds the answer.
-	 *
-	 * @param answer
-	 *            the answer
-	 */
-	public void addAnswer(Answer answer) {
-		this.answers.add(answer);
 	}
 
 }

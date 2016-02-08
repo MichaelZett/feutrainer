@@ -43,7 +43,7 @@ public class EaExtractorService {
 				LOGGER.info("Working on File: {}.", filename);
 				int ke = 1;
 				QuestionData q = null;
-				StringBuffer questionText = null;
+				StringBuilder questionText = null;
 				for (String line : reader.lines().collect(Collectors.toList())) {
 					if (line.contains("Teil") && line.contains("KE") && line.contains("RP")) {
 						// get the number of the KE
@@ -53,11 +53,11 @@ public class EaExtractorService {
 							LOGGER.info("Set chapter to {}.", ke);
 						}
 					} else if (line.contains("Aufgabe") && line.contains("RP")) {
-						this.finishCurrentQuestion(questions, q, questionText);
+						finishCurrentQuestion(questions, q, questionText);
 						int aufgabe = Integer.parseInt(line.substring(8, 10).trim());
 						q = new QuestionData(filename, ke, aufgabe);
 						LOGGER.info("Created new question for aufgabe: {}.", aufgabe);
-						questionText = new StringBuffer();
+						questionText = new StringBuilder();
 					} else if (!(line.startsWith("A ") || line.startsWith("B "))) {
 						questionText.append(line);
 						LOGGER.debug("Appended following text to question: {}.", line);
@@ -66,13 +66,13 @@ public class EaExtractorService {
 						LOGGER.info("Added answer option {} as '{}'.", line.substring(0, 1).trim(), line.substring(2));
 					}
 				}
-				this.finishCurrentQuestion(questions, q, questionText);
+				finishCurrentQuestion(questions, q, questionText);
 			}
-			this.createSqlStatements(questions);
+			createSqlStatements(questions);
 		}
 	}
 
-	private void finishCurrentQuestion(Set<QuestionData> questions, QuestionData q, StringBuffer questionText) {
+	private void finishCurrentQuestion(Set<QuestionData> questions, QuestionData q, StringBuilder questionText) {
 		if (q != null) {
 			q.setQuestion(questionText.toString());
 			LOGGER.info("Setting question text as '{}'", questionText.toString());

@@ -7,27 +7,28 @@ Project to create a spring boot vaadin trainer app for FeU courses.
 * individualized width of name text-field
 * implemented converter and sued fields for multi-selection
 
-## 0.3.0 (in progress)
-* add missing views: course unit (ok), chapter ok)
-* add new navigator (ok)
-* add basic security (ok)
-* explore filter for table chapter (ok)
-* explore filter for comboBox in chapter (ok)
-* refactor everything
+## 0.3.0 (released)
+* add missing views: course unit , chapter 
+* add new navigator 
+* add basic security 
+* explore filter for table chapter 
+* explore filter for comboBox in chapter 
 
-## 0.4.0 (planned)
-* add missing views: question, answers
+## 0.4.0 (in progress)
+* add missing views: question(ok), answers
 * create initial data set for 31071 and use liquibase
 * create better layout
 * add unit tests where necessary
 * add first basic JBehave tests
+* refactor everything (text area for long text, etc)
 
 ## 0.5.0 (planned)
 * add db based security 
 * add user and user_role view
 * use more JBehave tests
+* refactor everything
 
-## 0.6.0 (planned 20.01.16)
+## 0.6.0 (planned 01.10.16)
 * add test creation and execution
 * start alpha-test
 
@@ -41,5 +42,5 @@ Project to create a spring boot vaadin trainer app for FeU courses.
 ## 0.9.0 (planned)
 * bugfixing
 
-## 1.0.0 (planned)
+## 1.0.0 (01.04.2017)
 * GA

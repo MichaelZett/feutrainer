@@ -19,7 +19,7 @@
  */
 package de.zettsystems.feutrainer.domain.test;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import de.zettsystems.feutrainer.domain.base.BaseRepository;
 
 /**
  * Repository for Question.
@@ -27,6 +27,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @author michael_zoeller
  * @created 26.08.2013
  */
-public interface QuestionRepository extends JpaRepository<Question, Long> {
+public interface QuestionRepository extends BaseRepository<Question> {
 
 }
