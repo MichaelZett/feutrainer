@@ -59,7 +59,7 @@ public class EaExtractorService {
 						LOGGER.info("Created new question for aufgabe: {}.", aufgabe);
 						questionText = new StringBuffer();
 					} else if (!(line.startsWith("A ") || line.startsWith("B "))) {
-						questionText.append(line);
+						questionText.append(" " + line);
 						LOGGER.debug("Appended following text to question: {}.", line);
 					} else {
 						q.addAnswer(line.substring(0, 1).trim(), line.substring(2));
