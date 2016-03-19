@@ -26,7 +26,6 @@ import com.vaadin.server.VaadinRequest;
 import com.vaadin.spring.annotation.SpringUI;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
-import com.vaadin.ui.CheckBox;
 import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Notification;
@@ -51,8 +50,6 @@ public class LoginUI extends UI {
 
 	private PasswordField passwordField;
 
-	private CheckBox rememberMe;
-
 	private Button login;
 
 	private Label loginFailedLabel;
@@ -67,7 +64,6 @@ public class LoginUI extends UI {
 
 		loginForm.addComponent(this.userName = new TextField("Username"));
 		loginForm.addComponent(this.passwordField = new PasswordField("Password"));
-		loginForm.addComponent(this.rememberMe = new CheckBox("Remember me"));
 		loginForm.addComponent(this.login = new Button("Login"));
 		this.login.addStyleName(ValoTheme.BUTTON_PRIMARY);
 		this.login.setDisableOnClick(true);
@@ -104,8 +100,7 @@ public class LoginUI extends UI {
 
 	private void login() {
 		try {
-			this.vaadinSecurity.login(this.userName.getValue(), this.passwordField.getValue(),
-					this.rememberMe.getValue());
+			this.vaadinSecurity.login(this.userName.getValue(), this.passwordField.getValue());
 		} catch (AuthenticationException ex) {
 			this.userName.focus();
 			this.userName.selectAll();
