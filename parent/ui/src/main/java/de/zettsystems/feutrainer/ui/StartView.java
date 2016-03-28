@@ -13,10 +13,12 @@ import com.vaadin.server.FontAwesome;
 import com.vaadin.spring.annotation.SpringView;
 import com.vaadin.ui.VerticalLayout;
 
+import de.zettsystems.feutrainer.values.user.Role;
+
 /**
  * The Class StartView.
  */
-@Secured({ "ROLE_DATA", "ROLE_ADMIN", "ROLE_STUDENT" })
+@Secured({ Role.Constants.DATA, Role.Constants.ADMIN, Role.Constants.STUDENT })
 @SideBarItem(sectionId = Sections.GENERAL, caption = "Start Page")
 @FontAwesomeIcon(FontAwesome.INFO)
 @SpringView(name = StartView.VIEW_NAME)

@@ -12,8 +12,6 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint;
-import org.springframework.security.web.authentication.RememberMeServices;
-import org.springframework.security.web.authentication.rememberme.TokenBasedRememberMeServices;
 import org.vaadin.spring.http.HttpService;
 import org.vaadin.spring.security.annotation.EnableVaadinSharedSecurity;
 import org.vaadin.spring.security.config.VaadinSharedSecurityConfiguration;
@@ -66,7 +64,6 @@ public class FeuTrainer {
 			http.formLogin().disable();
 			http.logout().logoutUrl("/logout").logoutSuccessUrl("/login?logout").permitAll();
 			http.exceptionHandling().authenticationEntryPoint(new LoginUrlAuthenticationEntryPoint("/login"));
-			http.rememberMe().rememberMeServices(rememberMeServices()).key("myAppKey");
 		}
 
 		@Override
@@ -78,15 +75,6 @@ public class FeuTrainer {
 		@Bean
 		public AuthenticationManager authenticationManagerBean() throws Exception {
 			return super.authenticationManagerBean();
-		}
-
-		@Bean
-		public RememberMeServices rememberMeServices() {
-			// TODO Is there some way of exposing the RememberMeServices
-			// instance that the remember me configurer creates by default?
-			TokenBasedRememberMeServices services = new TokenBasedRememberMeServices("myAppKey", userDetailsService());
-			services.setAlwaysRemember(true);
-			return services;
 		}
 
 		@Bean(name = VaadinSharedSecurityConfiguration.VAADIN_AUTHENTICATION_SUCCESS_HANDLER_BEAN)

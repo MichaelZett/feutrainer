@@ -22,6 +22,11 @@
 	<dependencies>
 		<dependency>
 			<groupId>de.zettsystems.feutrainer</groupId>
+			<artifactId>values</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>de.zettsystems.feutrainer</groupId>
 			<artifactId>application</artifactId>
 			<version>${project.version}</version>
 		</dependency>		
