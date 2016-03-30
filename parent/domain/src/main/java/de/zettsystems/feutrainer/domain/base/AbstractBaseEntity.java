@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Version;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -27,9 +28,11 @@ public class AbstractBaseEntity implements Serializable {
 
 	@NotBlank
 	@Column(unique = true)
+	@Size(min = 1, max = 255)
 	private String id;
 
 	@NotBlank
+	@Size(min = 1, max = 255)
 	private String name;
 
 	/**

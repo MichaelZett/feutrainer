@@ -3,6 +3,7 @@ package de.zettsystems.feutrainer.domain.test;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import de.zettsystems.feutrainer.domain.base.AbstractBaseEntity;
 
@@ -11,7 +12,9 @@ import de.zettsystems.feutrainer.domain.base.AbstractBaseEntity;
  */
 @Entity
 public class Answer extends AbstractBaseEntity {
+	@Size(max = 255)
 	private String additionalText;
+	@Size(max = 255)
 	private String imageFileName;
 	@ManyToOne(optional = false)
 	@NotNull

@@ -44,10 +44,10 @@ public interface BaseRepository<T> extends JpaRepository<T, Long> {
 	 *            the pageable
 	 * @return the list
 	 */
-	@Transactional
+	@Transactional(readOnly = true)
 	List<T> findAllBy(Pageable pageable);
 
-	@Transactional
+	@Transactional(readOnly = true)
 	List<T> findAllByNameLikeIgnoreCase(String id);
 
 }

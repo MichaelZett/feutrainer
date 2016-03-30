@@ -19,7 +19,11 @@
  */
 package de.zettsystems.feutrainer.domain.user;
 
+import java.util.List;
+
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Repository for User.
@@ -28,7 +32,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @created 28.03.2016
  */
 public interface UserRepository extends JpaRepository<User, Long> {
-
+	@Transactional(readOnly = true)
 	User findUserByUsername(String userName);
+
+	@Transactional(readOnly = true)
+	List<User> findAllBy(Pageable pageable);
 
 }

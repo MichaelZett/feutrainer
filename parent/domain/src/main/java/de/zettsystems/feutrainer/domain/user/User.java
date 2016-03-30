@@ -40,6 +40,16 @@ public class User {
 	@Enumerated(EnumType.STRING)
 	private Role role;
 
+	private transient boolean passwordChanged;
+
+	public void setPasswordChanged(boolean b) {
+		this.passwordChanged = b;
+	}
+
+	public boolean isPasswordChanged() {
+		return passwordChanged;
+	}
+
 	public String getUsername() {
 		return username;
 	}
