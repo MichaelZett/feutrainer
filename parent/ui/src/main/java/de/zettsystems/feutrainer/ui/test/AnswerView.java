@@ -18,11 +18,12 @@ import de.zettsystems.feutrainer.domain.test.QuestionRepository;
 import de.zettsystems.feutrainer.ui.Sections;
 import de.zettsystems.feutrainer.ui.base.AbstractBaseTable;
 import de.zettsystems.feutrainer.ui.base.AbstractBaseView;
+import de.zettsystems.feutrainer.values.user.Role;
 
 /**
  * The Class QuestionView.
  */
-@Secured({ "ROLE_DATA", "ROLE_ADMIN" })
+@Secured({ Role.Constants.DATA, Role.Constants.ADMIN })
 @SideBarItem(sectionId = Sections.MASTER_DATA, caption = "Answer")
 @FontAwesomeIcon(FontAwesome.QUESTION)
 @SpringView(name = AnswerView.VIEW_NAME)

@@ -17,11 +17,12 @@ import de.zettsystems.feutrainer.domain.organisation.InstituteRepository;
 import de.zettsystems.feutrainer.ui.Sections;
 import de.zettsystems.feutrainer.ui.base.AbstractBaseTable;
 import de.zettsystems.feutrainer.ui.base.AbstractBaseView;
+import de.zettsystems.feutrainer.values.user.Role;
 
 /**
  * The Class InstituteView.
  */
-@Secured({ "ROLE_DATA", "ROLE_ADMIN" })
+@Secured({ Role.Constants.DATA, Role.Constants.ADMIN })
 @SideBarItem(sectionId = Sections.MASTER_DATA, caption = "Institutes")
 @FontAwesomeIcon(FontAwesome.SITEMAP)
 @SpringView(name = InstituteView.VIEW_NAME)

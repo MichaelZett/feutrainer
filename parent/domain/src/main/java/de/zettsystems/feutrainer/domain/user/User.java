@@ -10,6 +10,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import de.zettsystems.feutrainer.values.user.Role;
 
@@ -25,9 +26,11 @@ public class User {
 
 	@Column(nullable = false, unique = true)
 	@NotNull
+	@Size(min = 1, max = 255)
 	private String username;
 
 	@NotNull
+	@Size(min = 60, max = 60)
 	private String password;
 
 	@NotNull
@@ -71,6 +74,10 @@ public class User {
 
 	public Long getUserKey() {
 		return userKey;
+	}
+
+	protected void setUserKey(Long key) {
+		this.userKey = key;
 	}
 
 	@Override

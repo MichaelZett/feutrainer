@@ -19,11 +19,12 @@ import de.zettsystems.feutrainer.domain.courses.CourseUnitRepository;
 import de.zettsystems.feutrainer.ui.Sections;
 import de.zettsystems.feutrainer.ui.base.AbstractBaseTable;
 import de.zettsystems.feutrainer.ui.base.AbstractBaseView;
+import de.zettsystems.feutrainer.values.user.Role;
 
 /**
  * The Class ChairView.
  */
-@Secured({ "ROLE_DATA", "ROLE_ADMIN" })
+@Secured({ Role.Constants.DATA, Role.Constants.ADMIN })
 @SideBarItem(sectionId = Sections.MASTER_DATA, caption = "Chapter")
 @FontAwesomeIcon(FontAwesome.BOOK)
 @SpringView(name = ChapterView.VIEW_NAME)
