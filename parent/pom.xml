@@ -18,14 +18,13 @@
 		<vaadin.springboot.version>1.0.0</vaadin.springboot.version>
 		<vaadin.spring.extension.version>0.0.7.RELEASE</vaadin.spring.extension.version>
 		<viritin.version>1.49</viritin.version>
-		<usertype.extended.version>5.0.0.GA</usertype.extended.version>
 		<maven.compiler.plugin.version>3.3</maven.compiler.plugin.version>
 		<maven.war.plugin.version>2.6</maven.war.plugin.version>
 		<maven.jar.plugin.version>2.6</maven.jar.plugin.version>
 		<maven.processor.plugin.version>2.2.4</maven.processor.plugin.version>
 
 		<!-- Properties in BOMs don't get transfered. -->
-		<hibernate.version>4.3.11.Final</hibernate.version>
+		<hibernate.version>5.1.0.Final</hibernate.version>
 	</properties>
 
 	<dependencyManagement>
@@ -63,10 +62,10 @@
 				<version>${spring.boot.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>org.jadira.usertype</groupId>
-				<artifactId>usertype.extended</artifactId>
-				<version>${usertype.extended.version}</version>
-			</dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-java8</artifactId>
+				<version>${hibernate.version}</version>
+			</dependency>			
 			<dependency>
 				<groupId>com.vaadin</groupId>
 				<artifactId>vaadin-bom</artifactId>
