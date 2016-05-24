@@ -7,7 +7,7 @@ spring:
 
   jpa: 
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
     database-platform: org.hibernate.dialect.MySQLDialect
     show-sql: false
 
@@ -19,4 +19,4 @@ server:
 
 vaadin:
   servlet:
-    productionMode: true
+    productionMode: false
