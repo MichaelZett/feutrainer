@@ -43,12 +43,10 @@
         <dependency>
             <groupId>org.vaadin.spring.extensions</groupId>
             <artifactId>vaadin-spring-ext-security</artifactId>
-			<version>0.0.7-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.vaadin.spring.extensions</groupId>
-            <artifactId>vaadin-spring-ext-boot</artifactId>            
-			<version>0.0.7-SNAPSHOT</version>
+            <artifactId>vaadin-spring-ext-boot</artifactId>
         </dependency>
 
 		<dependency>
