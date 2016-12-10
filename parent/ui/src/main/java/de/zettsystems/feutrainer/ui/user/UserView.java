@@ -23,11 +23,11 @@ import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
 
+import de.zettsystems.feutrainer.domain.user.Role;
 import de.zettsystems.feutrainer.domain.user.User;
 import de.zettsystems.feutrainer.domain.user.UserRepository;
 import de.zettsystems.feutrainer.ui.Sections;
 import de.zettsystems.feutrainer.ui.base.BaseView;
-import de.zettsystems.feutrainer.values.user.Role;
 
 /**
  * The Class UserView.

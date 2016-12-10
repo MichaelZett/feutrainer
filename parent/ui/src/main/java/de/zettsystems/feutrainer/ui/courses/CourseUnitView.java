@@ -16,10 +16,10 @@ import de.zettsystems.feutrainer.domain.courses.CourseRepository;
 import de.zettsystems.feutrainer.domain.courses.CourseUnit;
 import de.zettsystems.feutrainer.domain.courses.CourseUnitRepository;
 import de.zettsystems.feutrainer.domain.organisation.ChairRepository;
+import de.zettsystems.feutrainer.domain.user.Role;
 import de.zettsystems.feutrainer.ui.Sections;
 import de.zettsystems.feutrainer.ui.base.AbstractBaseTable;
 import de.zettsystems.feutrainer.ui.base.AbstractBaseView;
-import de.zettsystems.feutrainer.values.user.Role;
 
 /**
  * The Class ChairView.

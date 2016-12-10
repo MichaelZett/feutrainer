@@ -1,4 +1,4 @@
-package de.zettsystems.feutrainer.values.user;
+package de.zettsystems.feutrainer.domain.user;
 
 public enum Role {
 	DATA(), ADMIN(), STUDENT();

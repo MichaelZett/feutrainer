@@ -15,10 +15,10 @@ import de.zettsystems.feutrainer.domain.base.BaseRepository;
 import de.zettsystems.feutrainer.domain.test.Answer;
 import de.zettsystems.feutrainer.domain.test.AnswerRepository;
 import de.zettsystems.feutrainer.domain.test.QuestionRepository;
+import de.zettsystems.feutrainer.domain.user.Role;
 import de.zettsystems.feutrainer.ui.Sections;
 import de.zettsystems.feutrainer.ui.base.AbstractBaseTable;
 import de.zettsystems.feutrainer.ui.base.AbstractBaseView;
-import de.zettsystems.feutrainer.values.user.Role;
 
 /**
  * The Class QuestionView.

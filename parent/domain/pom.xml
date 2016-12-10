@@ -4,31 +4,32 @@
 	<parent>
 		<groupId>de.zettsystems.feutrainer</groupId>
 		<artifactId>parent</artifactId>
-		<version>0.4.0-SNAPSHOT</version>
+		<version>0.4.0</version>
 	</parent>
 
 	<artifactId>domain</artifactId>
 
 	<dependencies>
-	<dependency>
-			<groupId>de.zettsystems.feutrainer</groupId>
-			<artifactId>values</artifactId>
-			<version>${project.version}</version>
+		<dependency>
+		    <groupId>org.hibernate.javax.persistence</groupId>
+		    <artifactId>hibernate-jpa-2.1-api</artifactId>
+		    <version>1.0.0.Final</version>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.aspectj</groupId>
+					<artifactId>aspectjrt</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
+		
 		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator</artifactId>
-		</dependency>	
-				
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<scope>runtime</scope>
-		</dependency>	
+			<groupId>javax.validation</groupId>
+	   		<artifactId>validation-api</artifactId>
+		</dependency>				
 	</dependencies>
 
 	<build>

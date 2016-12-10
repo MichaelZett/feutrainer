@@ -15,10 +15,10 @@ import de.zettsystems.feutrainer.domain.base.BaseRepository;
 import de.zettsystems.feutrainer.domain.organisation.Department;
 import de.zettsystems.feutrainer.domain.organisation.DepartmentRepository;
 import de.zettsystems.feutrainer.domain.organisation.InstituteRepository;
+import de.zettsystems.feutrainer.domain.user.Role;
 import de.zettsystems.feutrainer.ui.Sections;
 import de.zettsystems.feutrainer.ui.base.AbstractBaseTable;
 import de.zettsystems.feutrainer.ui.base.AbstractBaseView;
-import de.zettsystems.feutrainer.values.user.Role;
 
 /**
  * The Class InstituteView.

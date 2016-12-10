@@ -13,7 +13,7 @@ import com.vaadin.server.FontAwesome;
 import com.vaadin.spring.annotation.SpringView;
 import com.vaadin.ui.VerticalLayout;
 
-import de.zettsystems.feutrainer.values.user.Role;
+import de.zettsystems.feutrainer.domain.user.Role;
 
 /**
  * The Class StartView.

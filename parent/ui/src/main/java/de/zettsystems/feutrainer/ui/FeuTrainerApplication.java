@@ -28,10 +28,13 @@ import org.vaadin.viritin.label.RichText;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.navigator.Navigator;
+import com.vaadin.navigator.View;
+import com.vaadin.navigator.ViewDisplay;
 import com.vaadin.server.DefaultErrorHandler;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.spring.annotation.SpringUI;
 import com.vaadin.spring.navigator.SpringViewProvider;
+import com.vaadin.ui.Component;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.Panel;
@@ -46,7 +49,8 @@ import com.vaadin.ui.VerticalLayout;
  */
 @Theme("valo")
 @SpringUI
-public class FeuTrainerApplication extends UI {
+public class FeuTrainerApplication extends UI implements ViewDisplay {
+	private Panel springViewDisplay;
 
 	@Autowired
 	private SpringViewProvider viewProvider;
@@ -73,10 +77,10 @@ public class FeuTrainerApplication extends UI {
 		this.sideBar.setItemFilter(new VaadinSecurityItemFilter(this.vaadinSecurity));
 		body.addComponent(this.sideBar);
 
-		final Panel viewContainer = new Panel();
-		viewContainer.setSizeFull();
-		body.addComponent(viewContainer);
-		body.setExpandRatio(viewContainer, 1.0f);
+		this.springViewDisplay = new Panel();
+		this.springViewDisplay.setSizeFull();
+		body.addComponent(this.springViewDisplay);
+		body.setExpandRatio(this.springViewDisplay, 1.0f);
 
 		final VerticalLayout root = new VerticalLayout();
 		root.setSizeFull();
@@ -87,7 +91,7 @@ public class FeuTrainerApplication extends UI {
 		root.setExpandRatio(headerCaption, 1);
 		root.setExpandRatio(body, 9);
 
-		Navigator navigator = new Navigator(this, viewContainer);
+		Navigator navigator = new Navigator(this, (ViewDisplay) this);
 		this.viewProvider.setAccessDeniedViewClass(AccessDeniedView.class);
 		navigator.addProvider(this.viewProvider);
 		navigator.setErrorView(ErrorView.class);
@@ -108,4 +112,8 @@ public class FeuTrainerApplication extends UI {
 		};
 	}
 
+	@Override
+	public void showView(View view) {
+		this.springViewDisplay.setContent((Component) view);
+	}
 }

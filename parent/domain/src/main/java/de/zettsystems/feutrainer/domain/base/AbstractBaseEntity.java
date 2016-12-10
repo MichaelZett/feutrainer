@@ -4,12 +4,13 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Version;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
-import org.hibernate.validator.constraints.NotBlank;
 
 /**
  * Basic attributes for all entities.
@@ -20,18 +21,19 @@ import org.hibernate.validator.constraints.NotBlank;
 @MappedSuperclass
 public class AbstractBaseEntity implements Serializable {
 	@Id
-	@GeneratedValue
+	@GeneratedValue(generator = "sequence", strategy = GenerationType.SEQUENCE)
+	@SequenceGenerator(name = "sequence", allocationSize = 10)
 	private long entityKey;
 
 	@Version
 	private long optimisticConcurrency;
 
-	@NotBlank
+	@NotNull
 	@Column(unique = true)
 	@Size(min = 1, max = 255)
 	private String id;
 
-	@NotBlank
+	@NotNull
 	@Size(min = 1, max = 255)
 	private String name;
 
@@ -119,10 +121,7 @@ public class AbstractBaseEntity implements Serializable {
 
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + (int) (this.entityKey ^ (this.entityKey >>> 32));
-		return result;
+		return 31;
 	}
 
 	@Override

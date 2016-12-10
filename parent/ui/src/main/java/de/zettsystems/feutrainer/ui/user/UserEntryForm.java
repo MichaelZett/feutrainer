@@ -12,8 +12,8 @@ import com.vaadin.ui.Component;
 import com.vaadin.ui.PasswordField;
 import com.vaadin.ui.TextField;
 
+import de.zettsystems.feutrainer.domain.user.Role;
 import de.zettsystems.feutrainer.domain.user.User;
-import de.zettsystems.feutrainer.values.user.Role;
 
 public class UserEntryForm extends AbstractForm<User> {
 	private TextField username = new MTextField("Username");
